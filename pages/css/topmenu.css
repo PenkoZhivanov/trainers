@@ -1,0 +1,35 @@
+body{
+    background-color: lightblue;
+}
+#top-menu-container {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    background-color: black;
+    padding: 10px;
+}
+a{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+a:hover{
+    background-color: white;
+    color:black;
+}
+
+.io{
+    float: right;
+    color:white;
+    padding-right:5px;
+    cursor:pointer;
+    
+}
+
+.io:hover{
+     background-color: black;
+    color:yellow;
+}
+#hidden-top-menu{
+    min-height: 50px;
+}
