@@ -38,24 +38,24 @@ $("a").on('click', function(){
     $("html, body").animate({scrollTop: $("#"+id).offset().top
     }, 850);
 });
-
-    $("#statia_1").on("click", function () {
-        hideand(1);
-        event.preventDefault();
-    });
-
-    $("#statia_2").on("click", function () {
-        hideand(2);
-        event.preventDefault();
-
-    });
-    $("#btnBack").on("click", function () {
-        window.location.href = "test.html";
-    });
-
-    $("#btnAll").on("click", function () {
-
-    });
+//
+//    $("#statia_1").on("click", function () {
+//        hideand(1);
+//        event.preventDefault();
+//    });
+//
+//    $("#statia_2").on("click", function () {
+//        hideand(2);
+//        event.preventDefault();
+//
+//    });
+//    $("#btnBack").on("click", function () {
+//        window.location.href = "test.html";
+//    });
+//
+//    $("#btnAll").on("click", function () {
+//
+//    });
 
 });
 
