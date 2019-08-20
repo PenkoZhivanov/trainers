@@ -1,7 +1,7 @@
-
 $(document).ready(function () {
+
     // Add smooth scrolling to all links in navbar + footer link
-    $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+    $(".navbar , footer a[href='#myPage']").on('click', function (event) {
 
         // Prevent default anchor click behavior
         event.preventDefault();
@@ -11,13 +11,13 @@ $(document).ready(function () {
 
         // Using jQuery's animate() method to add smooth page scroll
         // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-//        $('html, body').animate({
-//            scrollTop: $(hash).offset().top
-//        }, 900, function () {
-//
-//            // Add hash (#) to URL when done scrolling (default click behavior)
-//            window.location.hash = hash;
-//        });
+        //        $('html, body').animate({
+        //            scrollTop: $(hash).offset().top
+        //        }, 900, function () {
+        //
+        //            // Add hash (#) to URL when done scrolling (default click behavior)
+        //            window.location.hash = hash;
+        //        });
     });
 
     // Slide in elements on scroll
@@ -25,15 +25,20 @@ $(document).ready(function () {
         $(".slideanim").each(function () {
             var pos = $(this).offset().top;
             var winTop = $(window).scrollTop();
-            
+
             if (pos < winTop + 600) {
                 $(this).addClass("slide");
             }
         });
     });
 
+$("a").on('click', function(){
+    var id = $(this).attr('data-id');
     
-    
+    $("html, body").animate({scrollTop: $("#"+id).offset().top
+    }, 850);
+});
+
     $("#statia_1").on("click", function () {
         hideand(1);
         event.preventDefault();
@@ -59,39 +64,37 @@ $("li.off").on('click', function () {
 });
 
 
-
-
-
 function hideand(id) {
     $("#contact").hide("slow");
     $("#pricing").hide("slow");
     $("#services").hide("slow");
     $("#portfolio").hide("slide");
     $("#stat_" + id).show("slow");
-    
-    var p = $("#stat_"+id+" > p");
+
+    var p = $("#stat_" + id + " > p");
     var nbsp = "&nbsp;&nbsp;&nbsp;&nbsp;";
     for (var i = 0; i < p.length; i++) {
         p[i].innerHTML = nbsp + p[i].innerText;
     }
-    
-        // Store hash
-        var hash = "#myPage";
 
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 900, function () {
+    // Store hash
+    var hash = "#myPage";
 
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = "#myPage";
-        });
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+        scrollTop: $(hash).offset().top
+    }, 900, function () {
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = "#myPage";
+    });
 }
 
 function scrollToAnchor() {
     var aTag = $(".w3-image");
-    $('html,body').animate({scrollTop: aTag.offset().top}, 'slow');
+    $('html,body').animate({
+        scrollTop: aTag.offset().top
+    }, 'slow');
 }
 
-       

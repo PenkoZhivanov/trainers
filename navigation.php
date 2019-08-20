@@ -1,12 +1,4 @@
-<script>
-    function scrollTo(id){
-    
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#"+id).offset().top
-    }, 850);
- 
-    }
-</script>
+
 <nav class="navbar navbar-default navbar-fixed-top" >
     <div class="container" >
         <div class="navbar-header">
@@ -20,13 +12,13 @@
         <div class="collapse navbar-collapse" id="myNavbar" >
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#about">ЗА НАС</a></li>
-                <li><a  style="cursor:pointer;" onclick="scrollTo('services'); ">УСЛУГИ</a></li>
-                <li><a   onclick="scrollTo('portfolio'); ">ПОЛЕЗНО</a></li>
+                <li><a  data-id="services" style="cursor:pointer;">УСЛУГИ</a></li>
+                <li><a   data-id="portfolio">ПОЛЕЗНО</a></li>
                <!-- <li><a href="#pricing">ЦЕНИ</a></li> -->
-                <li><a   onclick="scrollTo('contacts'); ">КОНТАКТИ</a></li>
+                <li><a    data-id="contacts">КОНТАКТИ</a></li>
                 <li><div id="logged"></div></li>
                 <li class="off">
-                    <span class="glyphicon glyphicon-off" style="font-size:1.3em;color:white;"</span>
+                    <span class="glyphicon glyphicon-off" style="font-size:1.3em;color:white;"></span>
                 </li>
             </ul>
 
@@ -45,3 +37,4 @@
                 </div>
             </form>-->
         </div>
+       
