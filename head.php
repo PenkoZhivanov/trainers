@@ -12,6 +12,7 @@
         <script src="pages/js/jquery.min.js"></script>
         <script src="pages/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="pages/css/jquery-confirm.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
         <script src="pages/js/jquery-confirm.min.js"></script>
         <script src="pages/js/script.js" type="text/javascript"></script>
 

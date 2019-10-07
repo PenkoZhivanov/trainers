@@ -31,31 +31,50 @@ $(document).ready(function () {
             }
         });
     });
+// Menu click
+    $("a").on('click', function () {
+        var id = $(this).attr('data-id');
 
-$("a").on('click', function(){
-    var id = $(this).attr('data-id');
-    
-    $("html, body").animate({scrollTop: $("#"+id).offset().top
-    }, 850);
-});
-//
-//    $("#statia_1").on("click", function () {
-//        hideand(1);
-//        event.preventDefault();
-//    });
-//
-//    $("#statia_2").on("click", function () {
-//        hideand(2);
-//        event.preventDefault();
-//
-//    });
-//    $("#btnBack").on("click", function () {
-//        window.location.href = "test.html";
-//    });
-//
-//    $("#btnAll").on("click", function () {
-//
-//    });
+        if (id !== 'enter'&&id!=='exit') {
+            $("html, body").animate({scrollTop: $("#" + id).offset().top
+            }, 850);
+        }
+        if (id === 'enter') {
+            $("#first_page_container").hide();
+            $(".mcontainer").show();
+        }
+        if(id==="exit"){
+            window.location.href="logout.php";
+        }
+    });
+    /* Login with check ajax */
+    $("#login").on('click', function () {
+        document.getElementById("login_error").innerHTML = "";
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("password").value;
+        var error = document.getElementById("login_error");
+        
+        if ( !validateEmail(email)) {
+            error.innerHTML = "Невалиден email адрес!";
+            return;
+        }
+        
+        if (pass==undefined||pass.length < 1) {
+            error.innerHTML = "Невалидна парола!";
+            return;
+        }
+                var d = {
+                    action:'login',
+                    email:email,
+                    password:pass
+                }
+              
+        $.post('ajax.php',d).done(function(data){
+              console.log(data);return;
+           var obj = JSON.parse(data);
+           error.innerHTML=obj.error;
+        })
+    });
 
 });
 
@@ -98,3 +117,22 @@ function scrollToAnchor() {
     }, 'slow');
 }
 
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function validate() {
+  var $result = $("#result");
+  var email = $("#email").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    $result.text(email + " is valid :)");
+    $result.css("color", "green");
+  } else {
+    $result.text(email + " is not valid :(");
+    $result.css("color", "red");
+  }
+  return false;
+}
