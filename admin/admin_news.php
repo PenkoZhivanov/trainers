@@ -1,6 +1,6 @@
 <?php
 include_once 'News.php';
-include 'functions.php';
+
 $news = new News();
 $allNews = $news->getNews();
 ?>

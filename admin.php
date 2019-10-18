@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="pages/css/jquery-confirm.min.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
         <script src="pages/js/jquery-confirm.min.js"></script>
+ 
 
         <link href="pages/css/styles.css" rel="stylesheet" type="text/css"/>  
     </head>
@@ -75,6 +76,62 @@
                 </button>
 
             </div>
+
+         <link href="pages/css/styles.css" rel="stylesheet" type="text/css"/>  
+    </head>
+   
+
+<?php
+session_start();
+include "config.php";
+if (!isset($_SESSION['page'])) {
+    $_SESSION['page'] = 'users';
+} else {
+    
+}
+$page = $_SESSION['page'];
+if(strpos($page,"edit_news")>-1){
+    $page="edit_news";
+}
+
+switch ($page) {
+    case "home":
+        include_once $admin_home;
+        break;
+    case "users":
+        include_once $admin_users;
+        break;
+    case "trainers":
+        include_once "admin_trainers.php";
+        break;
+    case "news":
+        include_once $admin_news;
+        break;
+    case "edit_news":
+        include_once $admin_news_edit;
+        break;
+}
+?>
+
+<link rel="stylesheet" type="text/css" href="./scripts/datatables.min.css"/>
+<script type="text/javascript" src="./scripts/datatables.min.js"></script>
+    <?php
+    ?>
+    <style> .menu-navigation{
+            cursor:pointer;
+        }
+    </style>
+    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom:1px solid white;">
+        <div class="container" >
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" >АДМИНИСТРАЦИЯ</a>
+            </div>
+
 
             <div class="collapse navbar-collapse" id="myNavbar" >
                 <ul class="nav navbar-nav ">
