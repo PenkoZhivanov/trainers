@@ -66,7 +66,7 @@
         }
     </style>
     <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom:1px solid white; position: fixed;">
-        <a class="navbar-brand" >АДМИНИСТРАЦИЯ</a>
+        <a class="navbar-brand"  >АДМИНИСТРАЦИЯ</a>
         <div class="container" >
             <div class="navbar-header" >
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -82,7 +82,7 @@
    
 
 <?php
-session_start();
+//session_start();
 include "config.php";
 if (!isset($_SESSION['page'])) {
     $_SESSION['page'] = 'users';
