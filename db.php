@@ -43,8 +43,7 @@ class DB {
     function query($sql) {
  
         $result = $this->link->query($sql);
-    
-        
+  
         if(strpos($sql,"INSERT")>-1){
             return;
         }
@@ -54,9 +53,10 @@ class DB {
 //         }
         $result_array = [];
         try{
-        while ($row = $result->fetch_assoc()) {
-            $result_array[] = $row;
-        }
+			while ($row = $result->fetch_assoc()) {
+
+				$result_array[] = $row;
+			}
         }catch(Exception $e){
             
         }

@@ -1,30 +1,9 @@
 <?php
-
 class User {
 
     private $db;
     private $table = "user";
-    private $fields = [
-        userid=>null,
-        firstname=>null,
-        lastname=>null,
-        country=>null,
-        city=>null,
-        address=>null,
-        email=>null,
-        password=>null,
-        medical_story=>null,
-        training_experience=>null,
-        age=>null,
-        weight=>null,
-        height=>null,
-        target=>null,
-        training=>null,
-        more_info=>null,
-        image=>null,
-        isActive=>null,
-        isAdmin=>null];
-
+ 
     function __construct() {
         include_once 'db.php';
         $this->db = new DB();
