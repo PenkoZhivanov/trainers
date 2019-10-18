@@ -69,7 +69,7 @@
         100% {left:0px; top:0px;   transform: scaleX(-1);     }
     }
 </style>
-<?php            print_r($_SESSION); ?>
+
 <!-- Login form -->
 <div class="mcontainer">
     <div class="mmain">
