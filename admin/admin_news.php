@@ -4,7 +4,8 @@ include_once 'News.php';
 $news = new News();
 $allNews = $news->getNews();
 ?>
-<fieldset style="margin-top:50px; overflow-style: auto;"><legend style="position:fixed;background-color: whitesmoke;">Статии</legend>
+<fieldset style="margin-top:50px; overflow-style: auto;">
+    <legend style="position:fixed;background-color: whitesmoke;">Статии</legend>
     <div style="margin-top:50px;">
     <?php for ($i = 0; $i < count($allNews); $i++) { ?>
         <div class ="news-container" >

@@ -213,7 +213,7 @@ $city = getCities();
             echo "<td>" . $value['city_name'] . "</td>";
             echo "<td>" . $value['email'] . "</td>"; 
 			echo "<td>" . $value['isAdmin'] . "</td>";
-            echo "<td style='float:right;'><button id='b" . $value['userid'] . "' >Профил</button></td>";
+            echo "<td style='float:right;'><button class='show-profile' id='b" . $value['userid'] . "' >Профил</button></td>";
             echo "</tr>";
         }
         ?></tbody>
@@ -239,7 +239,13 @@ $city = getCities();
                 $("#table-container").show('slow');
                 $("#popup").hide('fast');
                 $("#huinq").hide('slow');
-            } else {
+                return;
+            } 
+            if(this.id=="menu-button"){
+                return;
+            }
+           
+            if(this.className=="show-profile"){
                 getProfile(this.id);
                 $("#table-container").hide('fast');
                 $("#popup").show('slow');

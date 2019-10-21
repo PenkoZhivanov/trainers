@@ -12,12 +12,16 @@
     $allNews = $news->getNews($id)[0];
 ?>
 
-<fieldset style="margin-top: 55px;">
-    <legend>
-        <span style="cursor:pointer;margin-left: 10px;font-size: 0.8em;font-weight: bold;">
+<fieldset style="margin-top: 51px;">
+    <legend style="position:fixed;background-color: whitesmoke;">
+        <span style="cursor:pointer;margin-left: 10px;font-size: 0.8em;font-weight: bold;" >
             <img style="margin-left:10px;margin-right: 10px;" width="25" src="images/back-arrow.png">
-            Обратно
-        </span><span><img style="margin-left:10px;margin-right: 10px;" width="25" src="images/edit-11-xxl.png">Редактирай</span>
+            <a href="redirector.php?item=2">Обратно</a>
+        </span>
+        <span style="cursor:pointer;margin-left: 10px;font-size: 0.8em;font-weight: bold;" >
+            <img style="margin-left:10px;margin-right: 10px;" width="25" src="images/edit-11-xxl.png">
+            <a href="redirector.php?item=3&id=<?php echo $id;?>">Редактирай</a>
+        </span>
     </legend>
     <div class="outher_content">
         <div class="inner_content">
