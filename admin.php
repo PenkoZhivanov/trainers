@@ -92,5 +92,6 @@
             </div>
         </div>
     </nav>
+    <body style="overflow-y: hidden;"
     <div id="dt"></div>
 <?php 

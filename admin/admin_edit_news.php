@@ -15,38 +15,52 @@
                 background-color: lightgoldenrodyellow;
                 padding:10px;
                 width:500px;
-                min-height: 600px;height: 600px; 
+                min-height: 500px;height: 500px; 
                 overflow-y: scroll;
                 margin-left: 50px;
             }
             table {
                 margin-top: 55px;
             }
+
+            .action-buttons{
+                margin:20 50; display: list-item;width: 10em;
+               
+            }
+            .action-buttons:hover{
+                color:black;
+                font-weight: bold;
+                box-shadow:5px 5px #ccc;
+            }
         </style>
     </head>
-    <body>
+    <body style="overflow-y: scroll !important;">
         <?php
         $exploded = explode("_", $_SESSION['page']);
         $end = end($exploded);
         ?>
-        <input id="hidden_id" hidden value="<?=$end; ?>">
+        <input id="hidden_id" hidden value="<?= $end; ?>">
         <table >
             <tr><td style="vertical-align: text-bottom">    
                     <div id="summernote" style="margin-right: 20px; "></div></td>
                 <td>
                     <div id="preview"  ></div>
                 </td>
+                <td>
+                    <button class="action-buttons" style="" onclick="view()">Прегледай</button>
+
+                    <button class="action-buttons" onclick="clr()" " >Изчисти</button>
+                    <button class="action-buttons" onclick="unclear()" >Отмени изчистването</button>
+                    <button class="action-buttons" onclick="save()" style="float:right;" >Запиши</button>
+                </td>
             </tr>
             <tr>
                 <td>  
-                    <button onclick="view()">Прегледай</button>
 
-                    <button onclick="clr()" style="margin-left:50px;" >Изчисти</button>
-                    <button onclick="unclear()" >Отмени изчистването</button>
                 </td>
                 <td>
                     <textarea id="hidden_text" style="display:none;"></textarea> 
-                    <button onclick="save()" style="float:right;" >Запиши</button>
+
                 </td>
             </tr>
         </table>
@@ -131,7 +145,7 @@
                 var imgsrc = $("img");
                 var images = [];
 
-                if (imgsrc.length > 0) {
+               /* if (imgsrc.length > 0) {
                     for (var i = imgsrc.length / 2; i < imgsrc.length; i++) {
                         var image = {name: null, width: null, data: null};
                         var addtime = Date.now();
@@ -142,13 +156,13 @@
                         $("img")[i].setAttribute("src", image['name']);
                     }
                 }
-
+ 
                 $.post("save.php", {image: images}).done(function (data) {
                     $("#test").html(data);
 
-                });
+                });*/
 
-                //$.post( "save.php", { data: $('#preview').html()} );
+                $.post( "save.php", { data: $('#preview').html()} );
 
             }
         </script>
