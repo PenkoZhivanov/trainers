@@ -2,8 +2,9 @@
 //include 'head.php';
 include 'User.php';
 include_once 'functions.php';
-
+include_once 'Country.php';
 $user = new User();
+
 $users = $user->getAllUsers();
 $country = getCountries();
 $city = getCities();
