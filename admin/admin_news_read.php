@@ -1,4 +1,5 @@
 <?php
+    include_once 'classes/Country.php';
     include_once 'News.php';
     include_once 'functions.php';
     $news = new News();

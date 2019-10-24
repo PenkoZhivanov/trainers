@@ -28,7 +28,7 @@
 
     <?php
     session_start();
-    include "config.php";
+    include_once  "config.php";
     if (!isset($_SESSION['page'])) {
         $_SESSION['page'] = 'users';
     } else {

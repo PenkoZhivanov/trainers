@@ -1,5 +1,4 @@
 <?php
-
 class News {
 
     public function __construct() {

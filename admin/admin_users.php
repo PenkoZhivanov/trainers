@@ -23,13 +23,19 @@ $city = getCities();
     }
 
     #popup{
+        display:none; 
         position:relative;
-        width:700px;
-        height: auto;
-        margin:auto;
+        width:25%;
+        height: 600px;
         min-height: 600px;
         min-width: 600px;
         background-color: white;
+        overflow-y: scroll;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        margin:auto;
+        margin-bottom: 15px;
+        margin-top: 65px;
 
 
     }
@@ -54,15 +60,18 @@ $city = getCities();
         color:yellow;
     }
 </style>
-<fieldset id="popup" style="display:none; 
-          height: 600px;
-          width: 25%;
-          overflow-y: scroll;
-          border-bottom: 1px solid black;
-          border-top: 1px solid black;
-          margin-bottom: 15px;
-          margin-top: 55px;">
+
+<fieldset  style="align-content: center; margin-top: 55px; ">
+    <legend style="background-color: whitesmoke; position:fixed;">Потребители
+        <span style="float:right;margin-right:20px;cursor:pointer;" title="Добавяне на нов потребител" >
+            <img src="images/add-user.png" width="35"> <span style="font-size:0.8em;" >Добави потребител</span>
+        </span>
+    </legend>
+</fieldset>
+
+<fieldset id="popup" >
     <legend><h2>Профил на потребител</h2></legend>
+    <div style="min-height: 20px;min-width: 20px;background-color: black;position:absolute;top:0%;left:90%;"></div>
     <form style="z-index: 999;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
             <tr class="fr">
@@ -176,7 +185,7 @@ $city = getCities();
 
         </table>
     </form>
-<table>
+    <table>
         <tr>
             <td>
                 <button id="btnSave">Запиши</button></div>
@@ -189,14 +198,7 @@ $city = getCities();
 </fieldset>
 
 
-<fieldset id="table-container" style="align-content: center; margin-top: 55px; ">
-    <legend style="background-color: whitesmoke; position:fixed;">Потребители
-        <span style="float:right;margin-right:20px;cursor:pointer;" title="Добавяне на нов потребител" >
-            <img src="images/add-user.png" width="35"> <span style="font-size:0.8em;" >Добави потребител</span>
-        </span>
-    </legend>
-</fieldset>
-<div style="position:relative;top:70px;height: 90%; overflow-y: scroll;">
+<div id="table-container" style="position:relative;top:70px;height: 90%; overflow-y: scroll;">
     <table  id="example" class="display compact" style="margin-top: 230px;"  >
         <thead>
             <tr >
@@ -211,14 +213,14 @@ $city = getCities();
             <?php
             $count = 0;
             foreach ($users as $value) {
-                $admin= $value['isAdmin']==0?"Обикновен":"Администратор";
-                
+                $admin = $value['isAdmin'] == 0 ? "Обикновен" : "Администратор";
+
                 $class = $count++ % 2 == 0 ? "white" : "lightblue";
                 echo"<tr class='" . $class . "'>";
                 echo "<td>" . $value['firstname'] . " " . $value['lastname'] . "</td>";
                 echo "<td>" . $value['city_name'] . "</td>";
                 echo "<td>" . $value['email'] . "</td>";
-                echo "<td>" . $admin. "</td>";
+                echo "<td>" . $admin . "</td>";
                 echo "<td style='float:right;'><button class='show-profile' id='b" . $value['userid'] . "' >Профил</button></td>";
                 echo "</tr>";
             }
@@ -244,7 +246,7 @@ $city = getCities();
             if (this.id === "profile-close") {
                 $("#table-container").show('slow');
                 $("#popup").hide('fast');
-              
+
                 return;
             }
             if (this.id == "menu-button") {
@@ -256,6 +258,9 @@ $city = getCities();
                 $("#table-container").hide('fast');
                 $("#popup").show('slow');
                 //$("#profile-close").show("slow");
+            }
+            if(this.id==="save"){
+                
             }
         });
     });
