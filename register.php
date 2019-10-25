@@ -87,9 +87,8 @@ include 'header.php';
                             <select name="country" >
                                 <?php for ($i = 0; $i < count($country); $i++) { ?>
                                     <option value="<?= $country[$i]["countryid"]; ?>" <?php
-                                    if($country[$i]["countryid"]==($sp1=isset($sp['country'])?$sp['country']:"")){echo "selected";}?>
-                                            >
-                                        <?= $country[$i]["country_name"]; ?>  </option>  
+                                    if($country[$i]["countryid"]==($sp1=isset($sp['country'])?$sp['country']:""))
+                                    {echo "selected";}?>> <?= $country[$i]["country_name"]; ?> </option>  
                                 <?php }
                                 ?>
 

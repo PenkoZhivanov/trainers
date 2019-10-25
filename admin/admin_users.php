@@ -1,78 +1,31 @@
 <?php
-//include 'head.php';
-include 'User.php';
-include_once 'functions.php';
-include_once 'Country.php';
-$user = new User();
-
-$users = $user->getAllUsers();
-$country = getCountries();
-$city = getCities();
+    include 'User.php';
+    include_once 'functions.php';
+    include_once 'classes/Country.php';
+    include_once 'classes/City.php';
+    
+    $user = new User();
+    $country = new Country();
+    $city = new City();
+    
+    /* DONT DO LIKE BELLOW ! */
+    $users = $user->getAllUsers();
+    $country = $country->getCountries();// getCountries();
+    $city = $city->getCities();
 ?>   
-<style>
-    .lightblue{
-        background-color: azure;
-    }
-    .white {
-        background-color: aliceblue;
-    }
-    td{
-        padding:5px;
-    }
-    button {
-        cursor:pointer;
-    }
+ <link rel="stylesheet" href="admin/admin_users.css">
 
-    #popup{
-        display:none; 
-        position:relative;
-        width:25%;
-        height: 600px;
-        min-height: 600px;
-        min-width: 600px;
-        background-color: white;
-        overflow-y: scroll;
-        border-bottom: 1px solid black;
-        border-top: 1px solid black;
-        margin:auto;
-        margin-bottom: 15px;
-        margin-top: 65px;
-
-
-    }
-    #huinq{
-        position:relative;
-        width:20px;
-        height: auto;
-        margin:auto;
-        background-color: white;
-    }
-    .bold{
-        font-weight: bold;
-    }
-    .green{
-        color:lime;
-    }
-    .red{
-        color:#ff0080;
-    }
-    thead >tr, tfoot > tr {
-        background-color:darkblue;
-        color:yellow;
-    }
-</style>
-
-<fieldset  style="align-content: center; margin-top: 55px; ">
-    <legend style="background-color: whitesmoke; position:fixed;">Потребители
-        <span style="float:right;margin-right:20px;cursor:pointer;" title="Добавяне на нов потребител" >
+<fieldset  id="fls-add-new-user">
+    <legend >Потребители
+        <span title="Добавяне на нов потребител" >
             <img src="images/add-user.png" width="35"> <span style="font-size:0.8em;" >Добави потребител</span>
         </span>
     </legend>
 </fieldset>
 
 <fieldset id="popup" >
-    <legend><h2>Профил на потребител</h2></legend>
-    <div style="min-height: 20px;min-width: 20px;background-color: black;position:absolute;top:0%;left:90%;"></div>
+    <legend><h2 style="display:inline-table;">Профил на потребител</h2><span id="close-user-profile" > 
+            <button title="Затвори" class="profile-close" style=""></button></span></legend>
     <form style="z-index: 999;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
             <tr class="fr">
@@ -81,7 +34,7 @@ $city = getCities();
                 </td>
                 <td>
                     <input type ="text" id="firstname"  name="firstname"  required="requred" />
-                    <label style="color:red;" id="firstname_error"></label>
+                    <label class="red" id="firstname_error"></label>
                 </td>
             <tr class="fr">
                 <td class="bold">
@@ -89,7 +42,7 @@ $city = getCities();
                 </td>
                 <td>
                     <input type ="text" id="lastname" name="lastname" required="requred"/>
-                    <label style="color:red;" id="lastname_error"></label>
+                    <label class="red" id="lastname_error"></label>
                 </td>
             </tr>
 
@@ -97,7 +50,7 @@ $city = getCities();
                 <td class="bold">email</td>
                 <td>
                     <input type="email" id="email" required="required" name="email" />
-                    <label style="color:red;"><?php
+                    <label class="red"><?php
                         if (isset($_SESSION['error_email']) && $_SESSION['error_email'] != 0) {
                             echo "Има потребител с този емайл";
                         }
@@ -192,14 +145,13 @@ $city = getCities();
                 <button id="btnSave">Запиши</button></div>
             </td>
             <td>
-                <button id="profile-close">Затвори</button>
+                <button class="profile-close">Затвори</button>
             </td>
         </tr> 
     </table>
 </fieldset>
 
-
-<div id="table-container" style="position:relative;top:70px;height: 90%; overflow-y: scroll;">
+<div id="table-container">
     <table  id="example" class="display compact" style="margin-top: 230px;"  >
         <thead>
             <tr >
@@ -244,7 +196,7 @@ $city = getCities();
         $('#example').DataTable();
         $("button").on("click", function () {
 
-            if (this.id === "profile-close") {
+            if (this.className === "profile-close") {
                 $("#table-container").show('slow');
                 $("#popup").hide('fast');
 

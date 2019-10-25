@@ -1,0 +1,86 @@
+.lightblue{
+        background-color: azure;
+    }
+    .white {
+        background-color: aliceblue;
+    }
+    td{
+        padding:5px;
+    }
+    button {
+        cursor:pointer;
+    }
+
+    #popup{
+        display:none; 
+        position:relative;
+        width:25%;
+        height: 600px;
+        min-height: 600px;
+        min-width: 600px;
+        background-color: white;
+        overflow-y: scroll;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        margin:auto;
+        margin-bottom: 15px;
+        margin-top: 65px;
+
+
+    }
+    #huinq{
+        position:relative;
+        width:20px;
+        height: auto;
+        margin:auto;
+        background-color: white;
+    }
+    .bold{
+        font-weight: bold;
+    }
+    .green{
+        color:lime;
+    }
+    .red{
+        color:#ff0080;
+    }
+    thead >tr, tfoot > tr {
+        background-color:darkblue;
+        color:yellow;
+    }
+    .red{
+        color:red;
+    }
+    
+    /*----------------------------------*/
+    #fls-add-new-user{
+        align-content: center; margin-top: 55px;
+    }
+    #fls-add-new-user > legend{
+        background-color: whitesmoke; 
+        position:fixed;
+    }
+    #fls-add-new-user > legend >span{
+        float:right;
+        margin-right:20px;
+        cursor:pointer;
+    }
+    /*-------------------------------*/
+    #table-container{
+        position:relative;
+        top:70px;
+        height: 90%; 
+        overflow-y: scroll;
+    }
+    
+    #close-user-profile{
+        float:right;
+        cursor:pointer;
+    }
+    /* Затваряне профил */
+    #close-user-profile > button {
+        background: url(images/close-window.ico); 
+        width:24px; 
+        height:24px;
+        background-size: 20px 20px;
+    }

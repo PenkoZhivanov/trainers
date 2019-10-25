@@ -5,7 +5,7 @@ class Country {
     private $db = null;
 
     public function __construct() {
-        include "DB.php";
+         
         $this->db = new DB();
     }
 
