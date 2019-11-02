@@ -79,7 +79,7 @@
     }
     /* Затваряне профил */
     #close-user-profile > button {
-        background: url(images/close-window.ico); 
+        background: url(../images/close-window.ico); 
         width:24px; 
         height:24px;
         background-size: 20px 20px;
