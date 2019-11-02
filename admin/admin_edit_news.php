@@ -136,7 +136,6 @@
             }
 
             function clr() {
-
                 $('#summernote').summernote('reset');
             }
 

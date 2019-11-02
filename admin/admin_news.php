@@ -5,7 +5,11 @@ $news = new News();
 $allNews = $news->getNews();
 ?>
 <fieldset style="margin-top:50px; overflow-style: auto;">
-    <legend style="position:fixed;background-color: whitesmoke;">Статии</legend>
+    <legend style="position:fixed;background-color: whitesmoke;">Статии
+        <span title="Добавяне на нов потребител" style="float:right;margin-right: 20px;">
+            <img src="images/edit.png" width="35"> <span style="font-size:0.8em;float:" >Добави статия</span>
+        </span>
+    </legend>
     <div style="margin-top:50px;">
     <?php for ($i = 0; $i < count($allNews); $i++) { ?>
         <div class ="news-container" >
