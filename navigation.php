@@ -2,9 +2,7 @@
         cursor:pointer;
     }
 </style>
-<script>
-  
-    </script>
+
 <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom:1px solid white;">
     <div class="container" >
         <div class="navbar-header">
@@ -26,7 +24,8 @@
                 <li style="float:right;"><a class="menu-navigation" data-id="exit">ИЗХОД</a> </li>
                 <?php } else {
                     ?>
-                    <li style="display:inline;"><a data-id="enter" class="menu-navigation">ВХОД</a></li><li style="display:inline;"><a class="menu-navigation">РЕГИСТРАЦИЯ</a> </li>
+                    <li style="display:inline;"><a data-id="enter" class="menu-navigation">ВХОД</a></li>
+                    <li style="display:inline;"><a data-id="registration" class="menu-navigation">РЕГИСТРАЦИЯ</a></li>
                 <?php } ?>
               
             </span>

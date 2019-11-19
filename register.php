@@ -1,5 +1,10 @@
 <?php
-include 'header.php';
+include_once 'head.php';
+include_once 'navigation.php';
+    include 'User.php';
+    include_once 'functions.php';
+    include_once 'classes/Country.php';
+    include_once 'classes/City.php';
 
   $country = getCountries();
    $city = getCities();
@@ -7,23 +12,27 @@ include 'header.php';
    $sp = array();
    if(isset($_SESSION['error_email'])&& $_SESSION['error_email']==1){
        
-       $sp = $_SESSION["post"];
+     //  $sp = $_SESSION["post"];
         $show = true;
    }
  
 ?>
 <style>
     .form_div{
+      
     width:50%;margin:auto; padding:20px 60px ;border:1px solid grey;background-color: white;
              border-radius: 20px; border-radius: 20px;background-image: url(bg.jpg)
 }
+td {
+    padding:5px 0px;
+}
 </style>
-
+<div class="cont" style="margin-top:50px;">
         <div class="form_div">  
           
             <h1>Форма за регистрация</h1>
             <hr>
-            <form name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
+            <form name ="trainer-data" id = "trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
                 <table>
 
                     <tr class="fr">
@@ -186,6 +195,7 @@ include 'header.php';
                 <input type="reset" style="float:right;" value="Изчисти" />
             </form>
         </div>
+</div>
        <?php if(isset($_SESSION['error_email'])){echo $_SESSION['error_email'];} ?>
         <script>
             function hide(page) {
@@ -227,6 +237,13 @@ include 'header.php';
                 return check;
                 
             }
+            
+            $( document ).ready(function() {
+             $( "input[type=^button]" ).each(function( index ) {
+                 console.log($(this));
+                 $(this).val("");
+});
+            });
         </script>
     </body>
 </html>

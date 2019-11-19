@@ -35,13 +35,16 @@ $(document).ready(function () {
     $("a").on('click', function () {
         var id = $(this).attr('data-id');
 
-        if (id !== 'enter'&&id!=='exit') {
+        if (id !== 'enter'&&id!=='exit'&&id!=='registration') {
             $("html, body").animate({scrollTop: $("#" + id).offset().top
             }, 850);
         }
         if (id === 'enter') {
             $("#first_page_container").hide();
             $(".mcontainer").show();
+        }
+        if(id==="registration"){
+          window.location.href="register.php";
         }
         if(id==="exit"){
             window.location.href="logout.php";
