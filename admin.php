@@ -24,74 +24,58 @@
         </style>
 
     </head>
+    
 
 
-    <?php
-    session_start();
-    include_once  "config.php";
-    if (!isset($_SESSION['page'])) {
-        $_SESSION['page'] = 'users';
-    } else {
-        
-    }
-    $page = $_SESSION['page'];
-    if (strpos($page, "edit_news") > -1) {
-        $page = "edit_news";
-    }
-    if (strpos($page, "read_news") > -1) {
-        $page = "read_news";
-    }
-
-    switch ($page) {
-        case "home":
-            include_once $admin_home;
-            break;
-        case "users":
-            include_once $admin_users;
-            break;
-        case "trainers":
-            include_once "admin_trainers.php";
-            break;
-        case "news":
-            include_once $admin_news;
-            break;
-        case "edit_news":
-            include_once $admin_news_edit;
-            break;
-        case "read_news":
-            include_once $admin_news_read;
-    }
-    ?>
-
-    <nav class="navbar navbar-default navbar-fixed-top" style="border-bottom:1px solid white;">
-        <a class="navbar-brand" >АДМИНИСТРАЦИЯ</a>
-        <div class="container" >
-
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" id="menu-button" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse" id="myNavbar" >
-                <ul class="nav navbar-nav ">
-                    <li><a href="redirector.php?item=1" class="menu-navigation navbar-right">Потребители</a></li>
-                    <li><a href="redirector.php?item=2" class="menu-navigation" >Статии</a></li>
-                    <li><a class="menu-navigation" data-id="contacts"></a></li></ul>
-                <span class="nav navbar-nav" style="float:right;"><?php if (isset($_SESSION['user'])) { ?>
-                        <li style="float:right;"><a class="menu-navigation" data-id="exit">ИЗХОД</a> </li>
-                    <?php } else {
-                        ?>
-                        <li style="display:inline;"><a data-id="enter" class="menu-navigation">ВХОД</a></li><li style="display:inline;"><a class="menu-navigation">РЕГИСТРАЦИЯ</a> </li>
-                    <?php } ?>
-
-                </span>
-
-            </div>
-        </div>
-    </nav>
     <body style="overflow-y: hidden;"
-    <div id="dt"></div>
-<?php 
+<?php
+    session_start();
+    include_once "config.php";
+    include_once 'db.php';
+    include_once 'admin/admin_navigation.php';
+    if (!isset($_SESSION['page'])) {
+                        $_SESSION['page'] = 'users';
+                    } else {
+                        
+                    }
+                    $page = $_SESSION['page'];
+                    if (strpos($page, "edit_news") > -1) {
+                        $page = "edit_news";
+                    }
+                    if (strpos($page, "read_news") > -1) {
+                        $page = "read_news";
+                    }
+    ?>
+          <table style="position: relative; min-height: 100%;">
+            <tr>
+                <td valign='top' style="background-color: black;min-width: 100px; height: 100%; min-height: 100%;">ddsdsdsd</td>
+                <td valign="top">
+                    <?php
+                    
+
+                    switch ($page) {
+                        case "home":
+                            include_once $admin_home;
+                            break;
+                        case "users":
+                            include_once $admin_users;
+                            break;
+                        case "trainers":
+                            include_once "admin_trainers.php";
+                            break;
+                        case "news":
+                            include_once $admin_news;
+                            break;
+                        case "edit_news":
+                            include_once $admin_news_edit;
+                            break;
+                        case "read_news":
+                            include_once $admin_news_read;
+                            break;
+                        case "sports":
+                            include_once $admin_sports;
+                    }
+                    ?>
+                </td>
+            </tr>
+        </table>

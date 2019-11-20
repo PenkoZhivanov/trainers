@@ -30,15 +30,10 @@
         </div>
     </div>
 </nav>
-<!--<div class="jumbotron text-center">
-    <h1>Welcome</h1> 
-    <p> </p> 
-<!-- <form class="form-inline">
-     <div class="input-group">
-         <input type="email" id="email" class="form-control" size="50" placeholder="Email Address" required>
-         <div class="input-group-btn">
-             <button type="button" class="btn btn-danger" id="login-btn">Login</button>
-         </div>
-     </div>
- </form>
-</div> -->
+<fieldset style="position: relative; top:30px;overflow-style: auto;">
+    <legend style="background-color: whitesmoke;">Спортове
+        <span title="Добавяне на нов потребител" style="float:right;margin-right: 20px;">
+            <img src="images/edit.png" width="35"> <span style="font-size:0.8em;float:" >Добави статия</span>
+        </span>
+    </legend>
+    </fieldset>
