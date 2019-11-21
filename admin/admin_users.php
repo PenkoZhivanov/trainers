@@ -13,15 +13,7 @@
     $country = $country->getCountries();// getCountries();
     $city = $city->getCities();
 ?>   
- <link rel="stylesheet" href="admin/admin_users.css">
-
-<fieldset  id="fls-add-new-user">
-    <legend >Потребители
-        <span title="Добавяне на нов потребител" >
-            <img src="images/add-user.png" width="35"> <span style="font-size:0.8em;" >Добави потребител</span>
-        </span>
-    </legend>
-</fieldset>
+ <link rel="stylesheet" href="admin/css/admin_users.css">
 
 <fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на потребител</h2><span id="close-user-profile" > 

@@ -1,0 +1,20 @@
+#content-table{
+    position: relative; 
+    min-height: 100%;
+}
+
+#left-menu{
+    background-color: white;
+    min-width: 100px; 
+    height: 100%; 
+    min-height: 100%;
+    color:black;
+    vertical-align: top;
+}
+.menu-navigation{
+    cursor:pointer;
+}
+
+body{
+    overflow-y:hidden;  
+}

@@ -1,21 +1,22 @@
 <?php
 session_start();
-$id = filter_input(INPUT_GET, "item",FILTER_VALIDATE_INT );
+$id = filter_input(INPUT_GET, "item");
 $news_id=filter_input(INPUT_GET, "id",FILTER_VALIDATE_INT );
+
 switch ($id){
-    case 1:
+    case "users":
         $_SESSION["page"]="users";
         break;
-    case 2:
+    case "news":
         $_SESSION["page"]="news";
         break;
-    case 3:
+    case "edit_news":
         $_SESSION["page"]="edit_news_".$news_id;
         break;
     case 4:
         $_SESSION["page"]="read_news_".$news_id;
         break;
-    case 5:
+    case "sports":
         $_SESSION["page"]="sports";
         break;
     case 6:

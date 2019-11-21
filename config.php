@@ -13,3 +13,4 @@ $admin_users = "admin/admin_users.php";
 $admin_news_edit ="admin/admin_edit_news.php";
 $admin_news_read = "admin/admin_news_read.php";
 $admin_sports = "admin/admin_sports.php";
+$admin_trainers = "admin/admin_trainers.php";
