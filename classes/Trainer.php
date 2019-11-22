@@ -11,7 +11,7 @@ class Trainer {
         ;
     }
     
-    function getAllTrainers($user_id=null, $where=null){
+    function getAllUsers($user_id=null, $where=null){
         if($where==null){
             $sql = "SELECT * FROM trainer LEFT JOIN country ON countryid=country LEFT JOIN city ON cityid=city";
         }else {
@@ -22,7 +22,7 @@ class Trainer {
         return $result;
     }
     
-    function getSpecifficTrainer($user_id=null,$user_email=null, $password =null){
+    function getSpecifficUser($user_id=null,$user_email=null, $password =null){
         $where=" WHERE 1 ";
         $orderBy="";
         if($user_id!=null){
