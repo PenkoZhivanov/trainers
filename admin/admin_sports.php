@@ -5,12 +5,12 @@ $sports = $sport->getSports();
 
 ?>
     <div id="table-container">
-        <div style="width: 100%;border:1px; solid black; min-height: 1.3em; background-color: whitesmoke;margin-bottom: 10px;"></div>
+        <div id="title-container"><span>СПОРТОВЕ</span></div>
     <table  id="example" class="display compact" style="margin-top: 230px;"  >
         <thead>
             <tr >
                 <th>Име</th>
-                <th>Действия</th>
+                <th id="th-action" style="width:50%;">Действия</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +22,11 @@ $sports = $sport->getSports();
                 echo"<tr class='" . $class . "'>";
                 echo "<td>" . $value['sport_name'] . "</td>";
       
-                echo "<td style='float:right;'>";
-                echo "<button class='' id='b";
+                echo "<td style='width50%;float:right;'>";
+                echo "<button class='action-button' title='РЕДАКТИРАЙ' id='b";
                 echo $value['id'];
-                echo "' >Редактирай</button>";
-                echo "<button>Изтрий</button> </td>";
+                echo "' ><img src='images/edit.png' width='20'></button>";
+                echo "<button class='action-button' title='ИЗТРИЙ'><img src='images/junk.png' width='20'></button> </td>";
                 echo "</tr>";
             }
             ?></tbody>

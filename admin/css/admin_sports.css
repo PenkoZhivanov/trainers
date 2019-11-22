@@ -1,7 +1,7 @@
  /*-------------------------------*/
     #table-container{
         position:relative;
-        top:70px;
+        text-align: left;
         height: 90%; 
         overflow-y: hidden;
         width: 500px;
@@ -36,5 +36,27 @@
     }
     .red{
         color:red;
-    }
     
+    }
+    #table-container > div{
+        width: 100%;
+        min-height: 2em; 
+        background-color: whitesmoke;
+        margin-bottom: 10px;
+    }
+    #table-container > div>span{
+        font-weight: bold;
+    }
+    #title-container{
+        padding:5px;
+        border-bottom: 1px solid black;
+           background-color: lightblue !important; 
+    }
+    .action-button{
+        margin: 0px 5px ;
+        display:inline;
+        background-color: white;
+    }
+ #th-action{
+         
+    }

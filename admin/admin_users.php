@@ -13,7 +13,8 @@
     $country = $country->getCountries();// getCountries();
     $city = $city->getCities();
 ?>   
- <link rel="stylesheet" href="admin/css/admin_users.css">
+ <link rel="stylesheet" href="./admin/css/admin_users.css">
+
 
 <fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на потребител</h2><span id="close-user-profile" > 
@@ -144,7 +145,8 @@
 </fieldset>
 
 <div id="table-container">
-    <table  id="example" class="display compact" style="margin-top: 230px;"  >
+      <div id="title-container"><span>ПОТРЕБИТЕЛИ</span></div>
+    <table  id="example" class="display compact" style=""  >
         <thead>
             <tr >
                 <th>Име</th>
@@ -166,7 +168,8 @@
                 echo "<td>" . $value['city_name'] . "</td>";
                 echo "<td>" . $value['email'] . "</td>";
                 echo "<td>" . $admin . "</td>";
-                echo "<td style='float:right;'><button class='show-profile' id='b" . $value['userid'] . "' >Профил</button></td>";
+                echo "<td style='float:right;'><button class='show-profile' id='b" . $value['userid'] . "' >Профил</button>";
+                echo "<button class='delete' title='ИЗТРИЙ' ><img src='images/junk.png' width='20'></button> </td>";
                 echo "</tr>";
             }
             ?></tbody>
@@ -181,4 +184,10 @@
         </tfoot>
     </table>
 </div> <!-- DIV Table -->
-<script src="admin/admin_users.js"></script>
+
+ <script src="./admin/admin_users.js">
+ 
+     function deleteProfile(id) {
+        alert(id);
+    }
+</script>

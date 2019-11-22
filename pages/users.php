@@ -71,30 +71,30 @@ $users = $user->getAllUsers();
 
 </div>
 <script>
-    $(document).ready(function () {
-        $("button").on("click", function () {
-      
-            if (this.id == "profile-close") {
-                $("#table-container").show('slow');
-                $("#popup").hide('fast');
-                $("#profile-close").hide();
-            } else {
-                getProfile(this.id);
-                $("#table-container").hide('fast');
-                $("#popup").show('slow');
-                $("#profile-close").show("slow");
-            }
-        });
-    });
-    
-    function getProfile(id){
-        id=id.slice(1,id.lenght);
-        $.post("ajax.php", {action: "profile",id:id}, function(result){
-            $("#pop-con").html(result);
-        
-        });
-    
-    }
-    
- 
+//    $(document).ready(function () {
+//        $("button").on("click", function () {
+//      
+//            if (this.id == "profile-close") {
+//                $("#table-container").show('slow');
+//                $("#popup").hide('fast');
+//                $("#profile-close").hide();
+//            } else {
+//                getProfile(this.id);
+//                $("#table-container").hide('fast');
+//                $("#popup").show('slow');
+//                $("#profile-close").show("slow");
+//            }
+//        });
+//    });
+//    
+//    function getProfile(id){
+//        id=id.slice(1,id.lenght);
+//        $.post("ajax.php", {action: "profile",id:id}, function(result){
+//            $("#pop-con").html(result);
+//        
+//        });
+//    
+//    }
+//    
+// 
 </script>
