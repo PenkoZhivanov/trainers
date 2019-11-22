@@ -18,3 +18,14 @@
 body{
     overflow-y:hidden;  
 }
+
+/* navigation */
+a{
+    font-weight: bold;
+}
+
+.menu-active{
+    background-color: lightblue;
+    border-top-left-radius:  14px;
+    border-bottom-right-radius:  14px;
+}

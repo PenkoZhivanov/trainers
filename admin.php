@@ -7,9 +7,6 @@
         <meta HTTP-EQUIV="Expires" content="-1">
         
         <link rel="stylesheet" href="pages/css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="pages/css/jquery-confirm.min.css">
         <link rel="stylesheet" type="text/css" href="scripts/datatables.min.css"/>
         <link href="admin/css/styles.css" rel="stylesheet" type="text/css"/>  
@@ -28,12 +25,7 @@
     include_once "config.php";
     include_once 'db.php';
     include_once 'admin/admin_navigation.php';
-    
-//    if (!isset($_SESSION['page'])) {
-//        $_SESSION['page'] = 'users';
-//    } else {
-//        
-//    }
+
     $page = $_SESSION['page'];
     if (strpos($page, "edit_news") > -1) {
         $page = "edit_news";

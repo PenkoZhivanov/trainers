@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2019 at 06:01 PM
+-- Generation Time: Nov 22, 2019 at 05:07 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -30,17 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `trainer` (
   `id` int(11) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `country` int(11) NOT NULL,
-  `city` int(11) NOT NULL,
   `bio` text NOT NULL,
   `experience` varchar(20) NOT NULL,
-  `address` varchar(255) NOT NULL,
   `waytowork` varchar(255) NOT NULL,
   `workaddress` varchar(255) NOT NULL,
   `worktime` varchar(255) NOT NULL,
-  `speciality` int(11) NOT NULL
+  `speciality` int(11) NOT NULL,
+  `specialnost` int(11) NOT NULL,
+  `specializacia_kinezi` int(11) NOT NULL,
+  `specializacia_kondic` int(11) NOT NULL,
+  `specializacia_vid_sport` int(11) NOT NULL,
+  `raboti_predimno` int(11) NOT NULL,
+  `raboti_sas` int(11) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `cena` tinyint(10) NOT NULL,
+  `certificate` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

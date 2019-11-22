@@ -19,8 +19,8 @@ switch ($id){
     case "sports":
         $_SESSION["page"]="sports";
         break;
-    case 6:
-        $_SESSION["page"]="read_news_".$news_id;
+    case "trainers":
+        $_SESSION["page"]="trainers";
         break;
 }
 
