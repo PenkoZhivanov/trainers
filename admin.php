@@ -25,7 +25,7 @@
     include_once "config.php";
     include_once 'db.php';
     include_once 'admin/admin_navigation.php';
-
+    if(!isset($_SESSION['page'])){        exit();}
     $page = $_SESSION['page'];
     if (strpos($page, "edit_news") > -1) {
         $page = "edit_news";

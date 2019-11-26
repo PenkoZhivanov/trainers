@@ -145,7 +145,8 @@ $city = $city->getCities();
 </fieldset>
 
 <div id="table-container">
-    <div id="title-container"><span>ПОТРЕБИТЕЛИ</span></div>
+    <div id="title-container"><span>ПОТРЕБИТЕЛИ</span><span id = "add-new" class="right" style="cursor:pointer;">
+            <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нов</span></div>
     <table  id="example" class="display compact" >
         <thead>
             <tr>
