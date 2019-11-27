@@ -102,3 +102,6 @@ thead >tr, tfoot > tr {
         background-color: white !important;
         margin: 0px 10px;
     }
+    .right{
+        float:right;
+    }

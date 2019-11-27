@@ -45,6 +45,9 @@ $(document).ready(function () {
         }
     });
 
+    $("#add-new").on('click',function(){
+      $("#popup").show();
+    });
 });
 
 function getProfile(id) {
