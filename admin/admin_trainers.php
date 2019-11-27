@@ -17,7 +17,7 @@ $city = $city->getCities();
 <script src="./admin/admin_users.js"></script>
 
 <fieldset id="popup" >
-    <legend><h2 style="display:inline-table;">Профил на потребител</h2><span id="close-user-profile" > 
+    <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" style=""></button></span></legend>
     <form style="z-index: 999;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
@@ -89,16 +89,15 @@ $city = $city->getCities();
             </tr>
 
             <tr class="sr">
-                <td style="width: 250px;"><b>Медицинска история</b><br>
-                    <i><small>заболявания и проблеми за които треньорът или кинезитерапевта трябва да знаят</small></i></td>
+                <td style="width: 250px;"><b>Кратка биография</b></td>
                 <td>
-                    <textarea name="medical_story" id="medical_story"></textarea>
+                    <textarea name="trainer_bio" id="trainer_bio"></textarea>
                 </td>
             </tr>
 
             <tr class="sr">
-                <td class="bold">Тренировъчен опит </td>
-                <td> <textarea name="training_experience" id="training_experience"></textarea></td>
+                <td class="bold">Oпит </td>
+                <td> <textarea name="trainer_experience" id="trai_experience"></textarea></td>
             </tr>
             <tr class="sr">
                 <td class="bold">Вързраст</td>
@@ -108,7 +107,7 @@ $city = $city->getCities();
                 <td class="bold">Килограми</td>
                 <td> <input type="number" min="1" id="weight" name="weight" value=""></td>
             </tr>
-            <tr class="sr">
+            <tr class="sr"> 
                 <td class="bold">Височина</td>
                 <td> <input type="number" min="1" id="height" name="height" value=""></td>
             </tr>
