@@ -101,33 +101,65 @@ $city = $city->getCities();
 
             </tr>
             <tr class="sr">
-                <td class="bold">Вързраст</td>
-                <td> <input type="number" min="1" name="age" id="age" value=""></td>
+                <td class="bold">Начин на работа</td>
+                <td> 
+                    <select name="way_of_work">
+                        <option>Персонално</option>
+                        <option>През интернет</option>
+                        <option>Друго</option>
+                    </select>
+                </td>
             </tr>
             <tr class="sr">
-                <td class="bold">Килограми</td>
-                <td> <input type="number" min="1" id="weight" name="weight" value=""></td>
+                <td class="bold">Месторабота</td>
+                <td> <textarea name="work_address"></textarea></td>
             </tr>
             <tr class="sr"> 
-                <td class="bold">Височина</td>
-                <td> <input type="number" min="1" id="height" name="height" value=""></td>
+                <td class="bold">Работно време</td>
+                <td> <textarea name="work_time"></textarea></td>
             </tr>
             <tr class="sr"> 
-                <td class="bold">Цели</td>
-                <td> <textarea name="target" id="target"></textarea></td>
+                <td class="bold">Специалист</td>
+                <td>
+                    <select name="specialist">
+                        <option>Кинезитерапевт</option>
+                        <option>Кондиционен треньор</option>
+                        <option>Треньор по вид спорт</option>
+                    </select>
+                </td>
             </tr>
             <tr class="sr">
                 <td >
-                    <b>Възможност за тренировки</b><br>
-                    <small><i>кога, къде, колко пъти седмично</i></small>
+                    <b>Специализация (за кинезитерапевт)</b><br>
                 </td>
-                <td><textarea name="training" id="training"></textarea></td>
+                <td>
+                    <select name="specialisation">
+                        <option>Спортни травми</option>
+                        <option>Травми на опорно двигателен апарат</option>
+                        <option>Кинезитерапия при вътрешни болести</option>
+                        <option>Кинезитерапия при неврологични заболявания</option>
+                        <option>Педиатрична кинезитерапия</option>
+                        <option>Мануален терапевт</option>
+                        <option>Кинезитерапия при гериатрични пациенти</option>
+                    </select>
+                </td>
             </tr>
             <tr class="sr">
-                <td class="bold">
-                    Разкажете повече за вас
+                 <td >
+                    <b>Специализация (за кондиционен треньор)</b><br>
                 </td>
-                <td><textarea name="more_info" id="more_info"></textarea></td>
+                <td>
+                    <select name="specialisation">
+                        <option>Спортни травми</option>
+                        <option>Травми на опорно двигателен апарат</option>
+                        <option>Кинезитерапия при вътрешни болести</option>
+                        <option>Кинезитерапия при неврологични заболявания</option>
+                        <option>Педиатрична кинезитерапия</option>
+                        <option>Мануален терапевт</option>
+                        <option>Кинезитерапия при гериатрични пациенти</option>
+                    </select>
+                </td>
+            </tr>
             </tr>
 
         </table>
