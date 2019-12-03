@@ -1,6 +1,8 @@
 <?php
-    $style = array("users"=>"","trainers"=>"","news"=>"","sports"=>"");
-    $style[$_SESSION['page']]="menu-active";
+$style = array("users" => "", "trainers" => "", "news" => "", "sports" => "");
+if (isset($_SESSION['page'])) {
+    $style[$_SESSION['page']] = "menu-active";
+}
 ?>
 <nav class="navbar navbar-default navbar-fixed-top"  > 
     <a class="navbar-brand" href="" style="float:left;font-weight: bold;">Администрация</a>
