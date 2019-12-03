@@ -18,6 +18,8 @@
                 <li><a class="menu-navigation <?=$style['trainers'];?>" data-id="trainers">ТРЕНЬОРИ</a></li>
                 <li><a class="menu-navigation <?=$style['news'];?>" data-id="news">СТАТИИ</a></li>
                 <li><a class="menu-navigation <?=$style['sports'];?>" data-id="sports">СПОРТОВЕ</a></li>
+                <li><a class="menu-navigation <?=$style['specialists'];?>" data-id="specialists">СПЕЦИАЛИСТИ</a></li>
+                <li><a class="menu-navigation <?=$style['specialnosti'];?>" data-id="specialnosti">СПЕЦИАЛНОСТИ</a></li>
                 <li><a class="menu-navigation" data-id="contacts">КОНТАКТИ</a></li>
                 <li><div id="logged"></div></li>
                 <li class="off">

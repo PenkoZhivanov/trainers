@@ -1,18 +1,12 @@
 <?php
 include 'User.php';
 include_once 'functions.php';
-include_once 'classes/Country.php';
-include_once 'classes/City.php';
 
 $user = new User();
-$country = new Country();
-$city = new City();
 
 /* DONT DO LIKE BELLOW ! */
 $users = $user->getAllUsers("WHERE isTrainer=1");
-print_r($users);
-$country = $country->getCountries(); // getCountries();
-$city = $city->getCities();
+
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
