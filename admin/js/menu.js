@@ -15,6 +15,12 @@ $(document).ready(function () {
             case "sports":
                 window.location.href = "redirector.php?item=" + id;
                 break;
+            case "specialists":
+                window.location.href = "redirector.php?item=" + id;
+                break;
+            case "specialnisti":
+                window.location.href = "redirector.php?item=" + id;
+                break;
 
         }
     });

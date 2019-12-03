@@ -61,7 +61,7 @@
             case "sports":
                 include_once $admin_sports;
             case "specialists":
-                include_once $admin_news_read;
+                include_once $admin_specialists;
                 break;
             case "specialnosti":
                 include_once $admin_news_read;
