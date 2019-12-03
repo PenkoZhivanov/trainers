@@ -3,18 +3,27 @@ include 'User.php';
 include_once 'functions.php';
 include_once 'classes/Country.php';
 include_once 'classes/City.php';
-
+include_once 'classes/Specialist.php';
 $user = new User();
 $country = new Country();
 $city = new City();
+$wayToWork = new WayToWork();
+$works = $wayToWork->getWorks();
+
 
 /* DONT DO LIKE BELLOW ! */
 $users = $user->getAllUsers("WHERE isTrainer=1");
 $country = $country->getCountries(); // getCountries();
 $city = $city->getCities();
+
+//--------
+$specialist = new Specialist();
+$specialist=$specialist->getSpecialists();
+
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
+<script src="./admin/js/w3.js"></script>
 
 <fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
@@ -104,9 +113,11 @@ $city = $city->getCities();
                 <td class="bold">Начин на работа</td>
                 <td> 
                     <select name="way_of_work">
-                        <option>Персонално</option>
-                        <option>През интернет</option>
-                        <option>Друго</option>
+                        <?php
+                        foreach ($works as $value) {
+                            echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>\n";
+                        }
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -122,9 +133,11 @@ $city = $city->getCities();
                 <td class="bold">Специалист</td>
                 <td>
                     <select name="specialist">
-                        <option>Кинезитерапевт</option>
-                        <option>Кондиционен треньор</option>
-                        <option>Треньор по вид спорт</option>
+                              <?php
+                        foreach ($specialist as $value) {
+                            echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>\n";
+                        }
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -145,7 +158,7 @@ $city = $city->getCities();
                 </td>
             </tr>
             <tr class="sr">
-                 <td >
+                <td >
                     <b>Специализация (за кондиционен треньор)</b><br>
                 </td>
                 <td>
