@@ -39,6 +39,7 @@
         ?>
 
         <?php
+        
         switch ($page) {
             case "home":
                 include_once $admin_home;

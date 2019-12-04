@@ -7,7 +7,7 @@ class DB {
     private $host = "127.0.0.1";
     private $user = "root";
     private $password = "";
-    private $dbase = "kalin";
+    private $dbase = "trainers";
     private $link = null;
 
     function __construct() {
@@ -28,7 +28,7 @@ class DB {
     function getAll($table, $where = null, $orderBy = null, $limit = null) {
 
         $sql = "SELECT * FROM " . $table . $where . $orderBy;
- 
+
         $result = $this->link->query($sql);
         $result_array = [];
         if ($result) {
@@ -36,27 +36,29 @@ class DB {
                 $result_array[] = $row;
             }
         }
-        
+
         return $result_array;
     }
+ 
 
     function query($sql) {
- 
+   
         $result = $this->link->query($sql);
-    
-        
-        if(strpos($sql,"INSERT")>-1){
-            return;
-        }
-      //  if (!$result || !is_array($result)) {
-       //    return;
-        // }
+ $file = fopen("c:/temp/log.txt", "w");
+        fwrite($file, strpos($sql, "INSERT") );
+        fclose($file);
+//        if (strpos($sql, "INSERT") > -1||strpos($sql, "UPDATE") > -1) {
+//            return;
+//        }
+//     
+//        if(count($result)<1){
+//            return;
+//        }
         $result_array = [];
 
         while ($row = $result->fetch_assoc()) {
             $result_array[] = $row;
         }
-
         $this->link->close();
         return $result_array;
     }

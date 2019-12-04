@@ -28,7 +28,7 @@ class DB {
     function getAll($table, $where = null, $orderBy = null, $limit = null) {
 
         $sql = "SELECT * FROM " . $table . $where . $orderBy;
- 
+
         $result = $this->link->query($sql);
         $result_array = [];
         if ($result) {
@@ -36,33 +36,29 @@ class DB {
                 $result_array[] = $row;
             }
         }
-        
+
         return $result_array;
     }
 
     function query($sql) {
- 
+
         $result = $this->link->query($sql);
-  
-        if(strpos($sql,"INSERT")>-1){
+
+        if (strpos($sql, "INSERT") > -1 || strpos($sql, "UPDATE") > -1) {
             return;
         }
-//        if (!$result || !is_array($result)) {
-//             $this->link->close();
-//           return [];
-//         }
-        $result_array = [];
-        try{
-			while ($row = $result->fetch_assoc()) {
 
-				$result_array[] = $row;
-			}
-        }catch(Exception $e){
+        $result_array = [];
+        try {
+            while ($row = $result->fetch_assoc()) {
+
+                $result_array[] = $row;
+            }
+        } catch (Exception $e) {
             
         }
-        $this->link->close();
+       // $this->link->close();
         return $result_array;
     }
-
 
 }
