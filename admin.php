@@ -65,7 +65,7 @@
                 include_once $admin_specialists;
                 break;
             case "specialnosti":
-                include_once $admin_news_read;
+                include_once $admin_specialnosti;
                 break;
         }
         ?>

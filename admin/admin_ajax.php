@@ -11,10 +11,16 @@ switch ($action) {
     case "edit_specialist":
         include_once '../classes/Specialist.php';
         $spec = new Specialist();
-        $spec->saveSpecialist($id,$name);
+        return $spec->saveSpecialist($id,$name);
         
         break;
-
+       case "delete_specialist":
+        include_once '../classes/Specialist.php';
+        $spec = new Specialist();
+        return $spec->delete($id);
+        
+        break;
+    
     default:
         break;
 }

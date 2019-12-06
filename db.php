@@ -44,7 +44,7 @@ class DB {
 
         $result = $this->link->query($sql);
 
-        if (strpos($sql, "INSERT") > -1 || strpos($sql, "UPDATE") > -1) {
+        if (strpos($sql, "INSERT") > -1 || strpos($sql, "UPDATE") > -1||strpos($sql, "DELETE")>-1) {
             return;
         }
 

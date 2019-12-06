@@ -15,5 +15,5 @@ $admin_news_read = "admin/admin_news_read.php";
 $admin_sports = "admin/admin_sports.php";
 $admin_trainers = "admin/admin_trainers.php";
 $admin_specialists = "admin/admin_specialists.php";
-$admin_specialnosti = "admin/admin_specialnosti.php";
+$admin_specialnosti = "admin/admin_specialisation.php";
 $admin_ajax="admin/admin_ajax.php";

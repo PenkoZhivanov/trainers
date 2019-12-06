@@ -18,7 +18,8 @@ $(document).ready(function () {
             case "specialists":
                 window.location.href = "redirector.php?item=" + id;
                 break;
-            case "specialnisti":
+            case "specialnosti":
+                alert(id);
                 window.location.href = "redirector.php?item=" + id;
                 break;
 

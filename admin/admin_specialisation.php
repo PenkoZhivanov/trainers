@@ -1,24 +1,25 @@
 <?php
-include 'classes/Specialist.php';
+include 'classes/Specialisation.php';
 include_once 'functions.php';
 
-$specialnost = new Specialist();
+$specialnost = new Specialisation();
 
 /* DONT DO LIKE BELLOW ! */
-$specialnost = $specialnost->getSpecialists();
+$specialnost = $specialnost->getAllSpecs();
+//pre($specialnost);
 //---------------------------------------------
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <div id="content-overlay" class="overlay hidden" style=""></div>
 
 <fieldset id="popup1" class="hidden" style="position:absolute;z-index: 100;background-color: lightblue;left:40%;top:15%; border:1px solid darkblue;padding: 20px;">
-    <legend style="border:1px dotted black;  margin:0px;background-color: lightgoldenrodyellow;text-align: center;">Специалист</legend>
+    <legend style="border:1px dotted black;  margin:0px;background-color: lightgoldenrodyellow;text-align: center;">Специалност</legend>
 
     <table>
         <tr style="padding:0px;">
             <td style="padding-top:0px;">
                 <div class="error"></div>
-                <input type="text" id="spec-name" size="30" placeholder="Въведете вид специалист"></td>
+                <input type="text" id="spec-name" size="30" placeholder="Въведете вид специалност"></td>
             <td><input type="hidden" value="" id="hidden-id"></td>
         </tr>
         <tr>
@@ -34,7 +35,7 @@ $specialnost = $specialnost->getSpecialists();
 
 <div id="table-container">
     <div id="title-container">
-        <span>Специалисти</span>
+        <span>Специалности</span>
         <span id="add-new" class="right" style="cursor:pointer;">
             <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нов
         </span>
@@ -42,6 +43,7 @@ $specialnost = $specialnost->getSpecialists();
     <table  id="example" class="display compact" >
         <thead>
             <tr>
+                <th>Специалност</th>
                 <th>Специалист</th>
                 <th>Действия</th>
             </tr>
@@ -53,6 +55,7 @@ $specialnost = $specialnost->getSpecialists();
                 $class = $count++ % 2 == 0 ? "white" : "lightblue";
                 echo"<tr class='" . $class . "'>";
                 echo "<td>" . $value['name'] . "</td>";
+                 echo "<td>" . $value['spec_name'] . "</td>";
                 echo "<td style='float:right;'><button class='show-profile' onclick='edit(" . json_encode($value) . ")' >Редактирай</button>";
                 echo "<button class='delete' title='ИЗТРИЙ'  onclick='del(" . $value['id'] . ")'><img src='images/junk.png' width='20'></button> </td>";
                 echo "</tr>";
@@ -60,7 +63,8 @@ $specialnost = $specialnost->getSpecialists();
             ?></tbody>
         <tfoot>
             <tr >
-                <th>Име</th>
+                <th>Специалност</th>
+                  <th>Специалист</th>
                 <th>Действия</th>
             </tr>	
         </tfoot>

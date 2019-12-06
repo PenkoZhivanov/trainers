@@ -13,20 +13,19 @@ $works = $wayToWork->getWorks();
 
 /* DONT DO LIKE BELLOW ! */
 $users = $user->getAllUsers("WHERE isTrainer=1");
-print_r($users);
 $country = $country->getCountries(); // getCountries();
 $city = $city->getCities();
 
 //--------
-$specialist = new Specialist();
-$specialist=$specialist->getSpecialists();
+$specialnost = new Specialist();
+$specialnost=$specialnost->getSpecialists();
 
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
 <script src="./admin/js/w3.js"></script>
 
-<fieldset id="popup" >
+<fieldset id="popup8" >
     <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" style=""></button></span></legend>
     <form style="z-index: 999;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
@@ -135,7 +134,7 @@ $specialist=$specialist->getSpecialists();
                 <td>
                     <select name="specialist">
                               <?php
-                        foreach ($specialist as $value) {
+                        foreach ($specialnost as $value) {
                             echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>\n";
                         }
                         ?>

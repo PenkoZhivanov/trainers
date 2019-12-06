@@ -25,7 +25,7 @@ switch ($id){
      case "specialists":
         $_SESSION["page"]="specialists";
         break;
-     case "specialnost":
+     case "specialnosti":
         $_SESSION["page"]="specialnosti";
         break;
 }
