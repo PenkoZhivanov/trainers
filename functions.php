@@ -48,3 +48,8 @@ function pre($data) {
     print_r($data);
     echo "</pre>";
 }
+function log2file($data){
+          $file = fopen("c:/temp/log.txt", "w");
+        fwrite($file, $data);
+        fclose($file);
+}

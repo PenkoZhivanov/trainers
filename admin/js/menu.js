@@ -19,7 +19,6 @@ $(document).ready(function () {
                 window.location.href = "redirector.php?item=" + id;
                 break;
             case "specialnosti":
-                alert(id);
                 window.location.href = "redirector.php?item=" + id;
                 break;
 

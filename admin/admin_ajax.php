@@ -6,6 +6,7 @@ if(!$action){
 }
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+$specId = filter_input(INPUT_POST, 'spec_id', FILTER_SANITIZE_NUMBER_INT);
 
 switch ($action) {
     case "edit_specialist":
@@ -20,7 +21,17 @@ switch ($action) {
         return $spec->delete($id);
         
         break;
-    
+    case "save_specialnost":
+        include_once '../classes/Specialisation.php';
+        $specialnost = new Specialisation();
+        return $specialnost->saveSpecialisation($id,$name, $specId);
+        
+        break;
+    case "delete_specialnost":
+        include_once '../classes/Specialisation.php';
+        $specialnost = new Specialisation();
+        return $specialnost->delete($id);
+        break;
     default:
         break;
 }

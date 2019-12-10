@@ -1,26 +1,37 @@
 <?php
 include 'classes/Specialisation.php';
-include_once 'functions.php';
+include 'classes/Specialist.php';
 
+include_once 'functions.php';
+$specialist = new Specialist();
 $specialnost = new Specialisation();
 
 /* DONT DO LIKE BELLOW ! */
 $specialnost = $specialnost->getAllSpecs();
-//pre($specialnost);
+$specialist = $specialist->getSpecialists();
+//pre($specialist);
 //---------------------------------------------
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <div id="content-overlay" class="overlay hidden" style=""></div>
 
-<fieldset id="popup1" class="hidden" style="position:absolute;z-index: 100;background-color: lightblue;left:40%;top:15%; border:1px solid darkblue;padding: 20px;">
+<fieldset id="popup1" class="hidden" style="position:absolute;z-index: 100;background-color: lightblue;left:30%;top:15%; border:1px solid darkblue;padding: 20px;">
     <legend style="border:1px dotted black;  margin:0px;background-color: lightgoldenrodyellow;text-align: center;">Специалност</legend>
 
     <table>
         <tr style="padding:0px;">
             <td style="padding-top:0px;">
                 <div class="error"></div>
-                <input type="text" id="spec-name" size="30" placeholder="Въведете вид специалност"></td>
+                Специалност:  <input type="text" id="spec-name" size="30" placeholder="Въведете вид специалност"></td>
             <td><input type="hidden" value="" id="hidden-id"></td>
+        </tr><tr>
+            Специалист:<select id="specialist-specialnost">
+            <?php
+            foreach ($specialist as $value) {
+                echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>";
+            }
+            ?>
+        </select>
         </tr>
         <tr>
             <td>
@@ -37,7 +48,7 @@ $specialnost = $specialnost->getAllSpecs();
     <div id="title-container">
         <span>Специалности</span>
         <span id="add-new" class="right" style="cursor:pointer;">
-            <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нов
+            <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нова
         </span>
     </div>
     <table  id="example" class="display compact" >
@@ -55,7 +66,7 @@ $specialnost = $specialnost->getAllSpecs();
                 $class = $count++ % 2 == 0 ? "white" : "lightblue";
                 echo"<tr class='" . $class . "'>";
                 echo "<td>" . $value['name'] . "</td>";
-                 echo "<td>" . $value['spec_name'] . "</td>";
+                echo "<td>" . $value['spec_name'] . "</td>";
                 echo "<td style='float:right;'><button class='show-profile' onclick='edit(" . json_encode($value) . ")' >Редактирай</button>";
                 echo "<button class='delete' title='ИЗТРИЙ'  onclick='del(" . $value['id'] . ")'><img src='images/junk.png' width='20'></button> </td>";
                 echo "</tr>";
@@ -64,7 +75,7 @@ $specialnost = $specialnost->getAllSpecs();
         <tfoot>
             <tr >
                 <th>Специалност</th>
-                  <th>Специалист</th>
+                <th>Специалист</th>
                 <th>Действия</th>
             </tr>	
         </tfoot>
@@ -101,21 +112,22 @@ $specialnost = $specialnost->getAllSpecs();
                 var result = checkAndSave();
             }
         });
-
         $("#add-new").on("click", function () {
             $(".overlay").removeClass("hidden");
             $("#popup1").removeClass("hidden");
         });
-
     });
     function checkAndSave() {
+
         var data = {
-            action: "edit_specialist",
+            action: "save_specialnost",
             id: $("#hidden-id").val(),
-            name: $("#spec-name").val()
+            name: $("#spec-name").val(),
+            spec_id: $("#specialist-specialnost option:selected").val()
         }
 
         $.post('admin/admin_ajax.php', data, function (mhm) {
+            console.log(mhm);
             al();
         });
     }
@@ -126,7 +138,7 @@ $specialnost = $specialnost->getAllSpecs();
         $("#popup1").removeClass("hidden");
         $("#hidden-id").val(arr['id']);
         $("#spec-name").val(arr['name']);
-
+        $("#specialist-specialnost").val(arr['specialist_id']);
     }
 
     function al() {
@@ -140,7 +152,7 @@ $specialnost = $specialnost->getAllSpecs();
                     text: 'Готово',
                     btnClass: 'btn-green',
                     action: function () {
-                        window.location.href="admin.php";
+                        window.location.href = "admin.php";
                     }
                 },
                 close: function () {
@@ -161,28 +173,27 @@ $specialnost = $specialnost->getAllSpecs();
                     btnClass: 'btn-red',
                     action: function () {
                         var data = {
-                            action: "delete_specialist",
-                            id: id,
+                            action: "delete_specialnost",
+                            id: id
                         }
 
                         $.post('admin/admin_ajax.php', data, function (mhm) {
-                            
-                                $.confirm({
-                                    title: 'Внимание!',
-                                    content: "Записът беше изтрит",
-                                    type: 'green',
-                                    typeAnimated: true,
-                                    buttons: {
-                                        close: {
-                                            text: 'OK',
-                                            btnClass: 'btn-green',
-                                            action: function () {
-                                               window.location.href="admin.php";
-                                            }
+
+                            $.confirm({
+                                title: 'Внимание!',
+                                content: "Записът беше изтрит",
+                                type: 'green',
+                                typeAnimated: true,
+                                buttons: {
+                                    close: {
+                                        text: 'OK',
+                                        btnClass: 'btn-green',
+                                        action: function () {
+                                            window.location.href = "admin.php";
                                         }
                                     }
-                                });
-                            
+                                }
+                            });
                         }).fail(function () {
                             alert("Грешка!");
                         });

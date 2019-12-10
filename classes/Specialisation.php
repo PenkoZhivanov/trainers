@@ -18,7 +18,9 @@ class Specialisation {
             return 0;
         }
         
-        $sql = "SELECT * FROM specialnost WHERE name LIKE '" . $name . "' AND specilaist_id=".$specId;
+        $sql = "SELECT * FROM specialnost WHERE name LIKE '" . $name . "' AND specialist_id=".$specId;
+  
+        
         $result = $this->db->query($sql);
 
         if (count($result) == 0 && (1 * (int) $id == 0)) {
@@ -26,10 +28,10 @@ class Specialisation {
         } elseif ((count($result) > 0) && 1 * (int) $id == 0) {
             return "Името съществува";
         } elseif (1 * (int) $id > 0) {
-            $sql = "UPDATE specialnost SET name='" . $name . "' WHERE id=" . $id;
+            $sql = "UPDATE specialnost SET name='" . $name . "' , specialist_id =".$specId." WHERE id=" . $id;
         }
 
-// $this->db = new DB();
+
         $this->db->query($sql);
         return 1;
     }
