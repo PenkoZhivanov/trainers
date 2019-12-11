@@ -15,8 +15,8 @@ $specialist = $specialist->getSpecialists();
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <div id="content-overlay" class="overlay hidden" style=""></div>
 
-<fieldset id="popup1" class="hidden" style="position:absolute;z-index: 100;background-color: lightblue;left:30%;top:15%; border:1px solid darkblue;padding: 20px;">
-    <legend style="border:1px dotted black;  margin:0px;background-color: lightgoldenrodyellow;text-align: center;">Специалност</legend>
+<fieldset id="popup1" class="hidden">
+    <legend>Специалност</legend>
 
     <table>
         <tr style="padding:0px;">
@@ -82,6 +82,20 @@ $specialist = $specialist->getSpecialists();
     </table>
 </div> <!-- DIV Table -->
 <style>
+    .popup1{
+        position:absolute;
+        z-index: 100;
+        background-color: lightblue;
+        left:30%;top:15%; 
+        border:1px solid darkblue;
+        padding: 20px;
+    }
+    .popup1 > legend{
+        border:1px dotted black;  
+        margin:0px;
+        background-color: lightgoldenrodyellow;
+        text-align: center;
+    }
     .overlay{
         z-index: 99;   
         position:absolute;
@@ -98,6 +112,7 @@ $specialist = $specialist->getSpecialists();
         min-height: 1.5em;
     }
 </style>
+
 <script>
     $(document).ready(function () {
         $('#example').DataTable();
@@ -124,10 +139,10 @@ $specialist = $specialist->getSpecialists();
             id: $("#hidden-id").val(),
             name: $("#spec-name").val(),
             spec_id: $("#specialist-specialnost option:selected").val()
-        }
+        };
 
         $.post('admin/admin_ajax.php', data, function (mhm) {
-            console.log(mhm);
+         
             al();
         });
     }
