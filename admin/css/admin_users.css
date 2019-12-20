@@ -15,8 +15,8 @@ button {
     display:none; 
     position:relative;
     width:25%;
-    height: 600px;
-    min-height: 600px;
+    height: 90%;
+    min-height: 80%;
     min-width: 600px;
     background-color: white;
     overflow-y: scroll;
@@ -24,7 +24,7 @@ button {
     border-top: 1px solid black;
     margin:auto;
     margin-bottom: 15px;
-    margin-top: 65px;
+    margin-top: 15px;
 }
 #huinq{
     position:relative;

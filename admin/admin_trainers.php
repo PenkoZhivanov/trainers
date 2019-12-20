@@ -25,10 +25,10 @@ $specialnost=$specialnost->getSpecialists();
 <script src="./admin/admin_users.js"></script>
 <script src="./admin/js/w3.js"></script>
 
-<fieldset id="popup8" >
+<fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" style=""></button></span></legend>
-    <form style="z-index: 999;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
+    <form style="position:relative; top:0px; width: 600px; height: 450px;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
             <tr class="fr">
                 <td style="padding-right:30px; width:200px;" class="bold">
