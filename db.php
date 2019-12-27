@@ -37,8 +37,8 @@ class DB {
             }
         }
         $data = print_r($result_array,true);
-        include_once 'functions.php';
-        log2file($sql);
+      /*  include_once 'functions.php';
+        log2file($sql); */
         return $result_array;
     }
 

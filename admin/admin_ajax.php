@@ -52,7 +52,7 @@ switch ($action) {
         }
     
         $result = $sport->saveSport($name);
-
+        
         echo json_encode($result);
 
 

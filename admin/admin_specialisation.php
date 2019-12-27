@@ -54,7 +54,7 @@ $specialist = $specialist->getSpecialists();
 </div> <!-- DIV Table -->
 
 <!-- Default form subscription -->
-<div id="inputForm" class="col-md-4 col-md-offset-4" style="z-index: 200;">
+<div id="inputForm" class="col-md-4 col-md-offset-4 hidden" style="z-index: 200;">
 <form class="text-center border border-light p-5 border " style="width:350px; padding:10px;border:1px solid lightblue;border-top-left-radius: 5px; border-top-right-radius: 5px;" action="#!">
     <div style="min-width:100%; min-height: 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; " class="btn-info"></div>
     <p class="h4 mb-4">Добавяне на специалност</p>
@@ -182,6 +182,7 @@ $specialist = $specialist->getSpecialists();
                     }
                 },
                 close: function () {
+                    
                 }
             }
         });

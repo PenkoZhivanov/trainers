@@ -4,7 +4,7 @@ $sport = new Sport();
 $sports = $sport->getSports();
 ?>
 <link rel="stylesheet" href="./admin/css/admin_users.css">
-
+<!-- Input form -->
 <div id="inputForm" class="col-md-4 col-md-offset-4 hidden" style="z-index: 200;">
     <form class="text-center border border-light p-5 border " style="width:350px; padding:10px;border:1px solid lightblue;border-top-left-radius: 5px; border-top-right-radius: 5px;" action="#!">
         <div style="min-width:100%; min-height: 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; " class="btn-info"></div>
@@ -61,7 +61,7 @@ $sports = $sport->getSports();
         </tfoot>
     </table>
 </div> <!-- DIV Table -->
-<script src="./admin/js/admin_sports.js1" type="text/javascript"></script>
+
 <style>
     .delete {
         margin: 5px 5px;
@@ -74,6 +74,7 @@ $sports = $sport->getSports();
 <script>
     $(document).ready(function () {
         $('#example').DataTable();
+
         $("button").on("click", function () {
             if ($(this).hasClass("profile-close")) {
                 $(".overlay").addClass("hidden");
@@ -88,19 +89,33 @@ $sports = $sport->getSports();
             if ($(this).hasClass("edit")) {
                 $(".h4").text("Редактиране на спорт");
                 var arr = JSON.parse($(this).attr("data-id"));
-                  $("#table-container").addClass("hidden");
+                $("#table-container").addClass("hidden");
                 $("#inputForm").removeClass("hidden");
                 $("#hidden-id").val(arr['id']);
-                $("#spec-name").val(arr['sport_name']);
+                $("#spec-name").val(arr['sport_name']).focus();
             }
+            
+            if ($(this).hasClass("delete")) {
+                var id = $(this).attr("data-id");
+                del(id);
+             
+            }
+            
         });
 
         $("#add-new").on("click", function () {
             $(".h4").text("Добавяне на спорт");
             $(".overlay").removeClass("hidden");
-             $("#table-container").addClass("hidden");
+            $("#table-container").addClass("hidden");
             $("#inputForm").removeClass("hidden");
             $("#table-container").addClass("hidden");
+            $("#spec-name").focus();
+        });
+
+        $("#spec-name").on("keypress", function (key) {
+            if (key.keyCode == 13) {
+                var result = checkAndSave();
+            }
         });
 
     });
@@ -112,31 +127,38 @@ $sports = $sport->getSports();
         }
 
         $.post('admin/admin_ajax.php', data, function (mhm) {
-            alert(mhm);
-            al();
+            al(mhm);
         });
     }
 
 
 
-    function al() {
-        $.confirm({
+    function al(passed) {
+        var obj = {
             title: 'Внимание',
             content: 'Спортът беше записан',
             type: 'green',
             typeAnimated: true,
             buttons: {
-                ок: {
+                ok: {
                     text: 'Готово',
                     btnClass: 'btn-green',
                     action: function () {
                         window.location.href = "admin.php";
                     }
                 },
-                close: function () {
-                }
+               
             }
-        });
+        }
+
+        if (passed == 1) {
+            obj.content = "Има спорт с такова име";
+            obj.type = 'red';
+            obj.buttons.ok.text = "Close";
+            obj.buttons.ok.btnClass = "btn-red";
+        }
+
+        $.confirm(obj);
     }
 
     function del(id) {
@@ -151,7 +173,7 @@ $sports = $sport->getSports();
                     btnClass: 'btn-red',
                     action: function () {
                         var data = {
-                            action: "delete_specialist",
+                            action: "delete_sport",
                             id: id,
                         }
 
