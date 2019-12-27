@@ -2,6 +2,6 @@
 $('#example').DataTable();
         $("button").on("click", function () {
 
- 
+ alert();
         });
     });

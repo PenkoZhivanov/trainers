@@ -29,3 +29,11 @@ a{
     border-top-left-radius:  14px;
     border-bottom-right-radius:  14px;
 }
+
+ .red-btn{
+        background-color: lightcoral;
+        color:white;
+    }
+    .red-btn:hover{
+        background-color: lightpink;
+    }

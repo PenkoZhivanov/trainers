@@ -36,7 +36,9 @@ class DB {
                 $result_array[] = $row;
             }
         }
-
+        $data = print_r($result_array,true);
+        include_once 'functions.php';
+        log2file($sql);
         return $result_array;
     }
 

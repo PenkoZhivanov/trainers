@@ -28,6 +28,10 @@ switch ($id){
      case "specialnosti":
         $_SESSION["page"]="specialnosti";
         break;
+    case "backtosite":
+        $_SESSION["page"]="index";
+        header("location:index.php");
+        break;
 }
 
 

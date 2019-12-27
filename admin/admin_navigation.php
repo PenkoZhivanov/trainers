@@ -23,6 +23,7 @@ if (isset($_SESSION['page'])) {
                 <li><a class="menu-navigation <?=$style['specialists'];?>" data-id="specialists">СПЕЦИАЛИСТИ</a></li>
                 <li><a class="menu-navigation <?=$style['specialnosti'];?>" data-id="specialnosti">СПЕЦИАЛНОСТИ</a></li>
                 <li><a class="menu-navigation" data-id="contacts">КОНТАКТИ</a></li>
+                <li><a class="menu-navigation" data-id="backtosite">Обратно към сайта</a></li>
                 <li><div id="logged"></div></li>
                 <li class="off">
                     <span class="glyphicon glyphicon-off" style="font-size:1.3em;color:white;"></span>

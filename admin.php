@@ -61,6 +61,7 @@
                 break;
             case "sports":
                 include_once $admin_sports;
+                break;
             case "specialists":
                 include_once $admin_specialists;
                 break;

@@ -21,6 +21,9 @@ $(document).ready(function () {
             case "specialnosti":
                 window.location.href = "redirector.php?item=" + id;
                 break;
+            case "backtosite":
+                window.location.href = "redirector.php?item="+id;
+                break;
 
         }
     });

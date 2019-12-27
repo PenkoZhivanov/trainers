@@ -49,7 +49,7 @@ function pre($data) {
     echo "</pre>";
 }
 function log2file($data){
-          $file = fopen("c:/temp/log.txt", "w");
+          $file = fopen("c:/temp/log.txt", "a");
         fwrite($file, $data);
         fclose($file);
 }

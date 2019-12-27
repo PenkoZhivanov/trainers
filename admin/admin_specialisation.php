@@ -15,34 +15,6 @@ $specialist = $specialist->getSpecialists();
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <div id="content-overlay" class="overlay hidden" style=""></div>
 
-<fieldset id="popup1" class="hidden"  style="position:absolute;z-index: 100;background-color: lightblue;left:40%;top:15%; border:1px solid darkblue;padding: 20px;">
-    <legend>Специалност</legend>
-
-    <table>
-        <tr style="padding:0px;">
-            <td style="padding-top:0px;">
-                <div class="error"></div>
-                Специалност:  <input type="text" id="spec-name" size="30" placeholder="Въведете вид специалност"></td>
-            <td><input type="hidden" value="" id="hidden-id"></td>
-        </tr><tr>
-            Специалист:<select id="specialist-specialnost" placeholder="Специалист">
-            <?php
-            foreach ($specialist as $value) {
-                echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>";
-            }
-            ?>
-        </select>
-        </tr>
-        <tr>
-            <td>
-                <button id="btnSave">Запиши</button></div>
-            </td>
-            <td>
-                <button class="profile-close">Затвори</button>
-            </td>
-        </tr> 
-    </table>
-</fieldset>
 <div id="table-container">
     <div id="title-container">
         <span>Специалности</span>
@@ -85,16 +57,14 @@ $specialist = $specialist->getSpecialists();
 <div id="inputForm" class="col-md-4 col-md-offset-4" style="z-index: 200;">
 <form class="text-center border border-light p-5 border " style="width:350px; padding:10px;border:1px solid lightblue;border-top-left-radius: 5px; border-top-right-radius: 5px;" action="#!">
     <div style="min-width:100%; min-height: 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; " class="btn-info"></div>
-    <p class="h4 mb-4">Специалност</p>
+    <p class="h4 mb-4">Добавяне на специалност</p>
 
 
     <!-- Name -->
-    <label style="float:left;" for="defaultSubscriptionFormPassword">Name</label>
-    <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name">
+    <label style="float:left;" for="defaultSubscriptionFormPassword">Наименование</label>
+    <input type="text" id="spec-name" class="form-control mb-4" placeholder="Наименование на специалността">
 
-    <!-- Email -->
-     <label style="float:left;" for="defaultSubscriptionFormEmail">Email</label>
-    <input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+ 
       <label style="float:left;" for="specialist-specialnost">Специалист</label>
     <select id="specialist-specialnost" class="form-control">
             <?php
@@ -103,9 +73,11 @@ $specialist = $specialist->getSpecialists();
             }
             ?>
         </select>
-
+<!-- Hidden id for edit  -->
+<input type="hidden" id="hidden-id">
     <!-- Sign in button -->
-    <button class="btn btn-info btn-block" type="submit">Sign in</button>
+    <button class="btn btn-info" id="btnSave" type="button">Запиши</button>  
+    <button class="btn red-btn profile-close" type="button">Откажи</button>
 
 
 </form></div>
@@ -143,15 +115,18 @@ $specialist = $specialist->getSpecialists();
         font-weight: bold;
         min-height: 1.5em;
     }
+   
 </style>
 
 <script>
     $(document).ready(function () {
         $('#example').DataTable();
         $("button").on("click", function () {
+   
             if ($(this).hasClass("profile-close")) {
                 $(".overlay").addClass("hidden");
-                $("#popup").addClass("hidden");
+                $("#inputForm").addClass("hidden");
+                $("#table-container").removeClass("hidden");
                 $("#hidden-id").val("");
                 $("#spec-name").val("");
             }
@@ -160,13 +135,14 @@ $specialist = $specialist->getSpecialists();
             }
         });
         $("#add-new").on("click", function () {
+             $(".h4").text("Добавяне на специалност");
             $(".overlay").removeClass("hidden");
             $("#inputForm").removeClass("hidden");
             $("#table-container").addClass("hidden");
         });
     });
     function checkAndSave() {
-
+        
         var data = {
             action: "save_specialnost",
             id: $("#hidden-id").val(),
@@ -182,17 +158,19 @@ $specialist = $specialist->getSpecialists();
 
     function edit(arr) {
 
+        $(".h4").text("Редактиране на специалност");
        $(".overlay").removeClass("hidden");
-        $("#popup1").removeClass("hidden");
+        $("#inputForm").removeClass("hidden");
         $("#hidden-id").val(arr['id']);
         $("#spec-name").val(arr['name']);
         $("#specialist-specialnost").val(arr['specialist_id']);
+         $("#table-container").addClass("hidden");
     }
 
     function al() {
         $.confirm({
             title: 'Внимание',
-            content: 'Специалистът беше записан',
+            content: 'Специалността беше записана',
             type: 'green',
             typeAnimated: true,
             buttons: {
