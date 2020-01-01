@@ -41,6 +41,11 @@ class Sport {
             return 1;
         }
     }
+    
+    public function delete(){
+        $sql="DELETE FROM sport WHERE id=".$this->id;
+          $this->db->query($sql);
+    }
 
     private function checkExists($sport_name) {
         $output = false;

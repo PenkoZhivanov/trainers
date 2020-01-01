@@ -10,10 +10,10 @@ switch ($id){
     case "news":
         $_SESSION["page"]="news";
         break;
-    case "edit_news":
+    case 3:/* редакция на новина */
         $_SESSION["page"]="edit_news_".$news_id;
         break;
-    case 4:
+    case 4:/* нова новина */
         $_SESSION["page"]="read_news_".$news_id;
         break;
     case "sports":

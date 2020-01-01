@@ -45,18 +45,23 @@ switch ($action) {
     case "save_sport":
         include_once '../classes/Sport.php';
         $data = print_r($id, true);
-        if($id<1){
+        if ($id < 1) {
             $sport = new Sport();
-        }else{
+        } else {
             $sport = new Sport($id);
         }
-    
+
         $result = $sport->saveSport($name);
-        
+
         echo json_encode($result);
 
 
         break;
+    case "delete_sport":
+        include_once '../classes/Sport.php';
+        $sport = new Sport($id);
+        $sport->delete();
+                break;
     default:
         break;
 }
