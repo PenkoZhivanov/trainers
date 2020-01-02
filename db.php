@@ -28,7 +28,6 @@ class DB {
     function getAll($table, $where = null, $orderBy = null, $limit = null) {
 
         $sql = "SELECT * FROM " . $table . $where . $orderBy;
-
         $result = $this->link->query($sql);
         $result_array = [];
         if ($result) {
