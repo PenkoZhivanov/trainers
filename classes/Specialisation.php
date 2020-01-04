@@ -8,8 +8,8 @@ class Specialisation {
         $this->db = new DB();
     }
 
-    public function getAllSpecs() {
-        return $this->db->query("SELECT sa.*, sb.id as spec_id, sb.name as spec_name FROM specialnost sa LEFT JOIN specialist sb on sb.id=sa.specialist_id");
+    public function getAllSpecs($where=null) {
+        return $this->db->query("SELECT sa.*, sb.id as spec_id, sb.name as spec_name FROM specialnost sa LEFT JOIN specialist sb on sb.id=sa.specialist_id ".$where);
     }
 
     public function saveSpecialisation($id, $name, $specId) {

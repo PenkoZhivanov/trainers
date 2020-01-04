@@ -1,5 +1,5 @@
 <?php
-include 'User.php';
+include_once 'classes/User.php';
 include_once 'functions.php';
 include_once 'classes/Country.php';
 include_once 'classes/City.php';
@@ -10,7 +10,7 @@ $city = new City();
 
 /* DONT DO LIKE BELLOW ! */
 $users = $user->getAllUsers();
-$country = $country->getCountries(); // getCountries();
+$country = $country->getCountries();
 $city = $city->getCities();
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">

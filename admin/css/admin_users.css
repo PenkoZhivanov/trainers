@@ -90,8 +90,8 @@ thead >tr, tfoot > tr {
     cursor:pointer;
 }
 /* Затваряне профил */
-#close-user-profile > button {
-    background: url(../images/close-window.ico); 
+span > button {
+    background: url(../../images/close-window.ico); 
     width:24px; 
     height:24px;
     background-size: 20px 20px;
@@ -105,3 +105,4 @@ thead >tr, tfoot > tr {
     .right{
         float:right;
     }
+    

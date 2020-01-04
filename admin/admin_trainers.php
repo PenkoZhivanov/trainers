@@ -1,9 +1,11 @@
 <?php
-include 'User.php';
+include_once 'classes/User.php';
 include_once 'functions.php';
 include_once 'classes/Country.php';
 include_once 'classes/City.php';
 include_once 'classes/Specialist.php';
+include_once 'classes/Specialisation.php';
+
 $user = new User();
 $country = new Country();
 $city = new City();
@@ -17,19 +19,23 @@ $country = $country->getCountries(); // getCountries();
 $city = $city->getCities();
 
 //--------
-$specialnost = new Specialist();
-$specialnost=$specialnost->getSpecialists();
+$specialist = new Specialist();
+$specialist=$specialist->getSpecialists();
+$specialnost = new Specialisation();
+$specialnost = $specialnost->getAllSpecs();
 
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
 <script src="./admin/js/w3.js"></script>
 
+
 <fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
-            <button title="Затвори" class="profile-close" style=""></button></span></legend>
+            <button title="Затвори" class="profile-close" ></button></span></legend>
     <form style="position:relative; top:0px; width: 600px; height: 450px;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
+            
             <tr class="fr">
                 <td style="padding-right:30px; width:200px;" class="bold">
                     Име:<sup>*</sup>
@@ -132,9 +138,9 @@ $specialnost=$specialnost->getSpecialists();
             <tr class="sr"> 
                 <td class="bold">Специалист</td>
                 <td>
-                    <select name="specialist">
+                    <select name="specialist" id="specialist">
                               <?php
-                        foreach ($specialnost as $value) {
+                        foreach ($specialist as $value) {
                             echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>\n";
                         }
                         ?>
@@ -143,17 +149,11 @@ $specialnost=$specialnost->getSpecialists();
             </tr>
             <tr class="sr">
                 <td >
-                    <b>Специализация (за кинезитерапевт)</b><br>
+                    <b>Специализация</b><br>
                 </td>
                 <td>
-                    <select name="specialisation">
-                        <option>Спортни травми</option>
-                        <option>Травми на опорно двигателен апарат</option>
-                        <option>Кинезитерапия при вътрешни болести</option>
-                        <option>Кинезитерапия при неврологични заболявания</option>
-                        <option>Педиатрична кинезитерапия</option>
-                        <option>Мануален терапевт</option>
-                        <option>Кинезитерапия при гериатрични пациенти</option>
+                    <select id="specialisation" name="specialisation">
+                       
                     </select>
                 </td>
             </tr>
@@ -173,12 +173,8 @@ $specialnost=$specialnost->getSpecialists();
                     </select>
                 </td>
             </tr>
-            </tr>
-
-        </table>
-    </form>
-    <table>
-        <tr>
+            <tr style="background-color: lightseagreen;"><td colspan="2"></td></tr>
+              <tr>
             <td>
                 <button id="btnSave">Запиши</button></div>
             </td>
@@ -186,6 +182,11 @@ $specialnost=$specialnost->getSpecialists();
                 <button class="profile-close">Затвори</button>
             </td>
         </tr> 
+
+        </table>
+    </form>
+    <table>
+      
     </table>
 </fieldset>
 
@@ -228,3 +229,27 @@ $specialnost=$specialnost->getSpecialists();
     </table>
 </div> <!-- DIV Table -->
 
+<script>
+    $(document).ready(function(){
+       console.log($("#specialist").val());
+                
+       $("select#specialist").on("change",function(){
+           // TO DO  - ajax get specialnost for current specialist
+       });
+    });
+    
+    function fillSpecialnost(){
+          var data = {
+            action: "get_specialnost",
+            id: $("#specialist").val(),
+            spec_id: $("#specialist-specialnost option:selected").val()
+        };
+
+        $.post('admin/admin_ajax.php', data, function (mhm) {
+         
+            al();
+        });
+        
+        
+    }
+    </script>

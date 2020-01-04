@@ -37,6 +37,11 @@ switch ($action) {
         $specialnost = new Specialisation();
         return $specialnost->delete($id);
         break;
+    case "get_specialnost":
+        include_once '../classes/Specialisation.php';
+        $specialnost = new Specialisation();
+        $specialnost->getAllSpecs("WHERE specialist_id=".$id);
+        break;
     case "edit_sport":
         include_once '../classes/Sport.php';
         $sport = new Sport($id);
