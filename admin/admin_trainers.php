@@ -277,4 +277,4 @@ $specialnost = $specialnost->getAllSpecs();
 
     }
 </script>
-ipt>
+ 
