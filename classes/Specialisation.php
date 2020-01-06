@@ -9,7 +9,11 @@ class Specialisation {
     }
 
     public function getAllSpecs($where=null) {
-        return $this->db->query("SELECT sa.*, sb.id as spec_id, sb.name as spec_name FROM specialnost sa LEFT JOIN specialist sb on sb.id=sa.specialist_id ".$where);
+        $sql= "SELECT sa.*, sb.id as spec_id, sb.name as spec_name FROM specialnost sa LEFT JOIN specialist sb on sb.id=sa.specialist_id ".$where;
+        $result =$this->db->query($sql);
+        
+       
+        return $result;
     }
 
     public function saveSpecialisation($id, $name, $specId) {
@@ -45,5 +49,10 @@ class Specialisation {
             return 1;
         }
     }
+    function log2file($data){
+          $file = fopen("c:/temp/log.txt", "a");
+        fwrite($file, $data);
+        fclose($file);
+}
 
 }

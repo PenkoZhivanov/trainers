@@ -40,7 +40,20 @@ switch ($action) {
     case "get_specialnost":
         include_once '../classes/Specialisation.php';
         $specialnost = new Specialisation();
-        $specialnost->getAllSpecs("WHERE specialist_id=".$id);
+        $specialnosti  = $specialnost->getAllSpecs(" WHERE specialist_id=" . $id);
+       
+        $output = "";
+        if(!$specialnosti){
+            $output = "<option value='0'>Няма въведени специализации</option>";
+        }else{
+            $output="";
+        }
+        
+        foreach ($specialnosti as $item) {
+            $output .= "<option value='".$item['id']."'>".$item['name']."</option>";
+        }
+        echo $output;
+        
         break;
     case "edit_sport":
         include_once '../classes/Sport.php';
@@ -66,7 +79,7 @@ switch ($action) {
         include_once '../classes/Sport.php';
         $sport = new Sport($id);
         $sport->delete();
-                break;
+        break;
     default:
         break;
 }

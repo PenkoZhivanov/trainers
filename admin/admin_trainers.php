@@ -20,10 +20,9 @@ $city = $city->getCities();
 
 //--------
 $specialist = new Specialist();
-$specialist=$specialist->getSpecialists();
+$specialist = $specialist->getSpecialists();
 $specialnost = new Specialisation();
 $specialnost = $specialnost->getAllSpecs();
-
 ?>   
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
@@ -35,7 +34,7 @@ $specialnost = $specialnost->getAllSpecs();
             <button title="Затвори" class="profile-close" ></button></span></legend>
     <form style="position:relative; top:0px; width: 600px; height: 450px;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
-            
+
             <tr class="fr">
                 <td style="padding-right:30px; width:200px;" class="bold">
                     Име:<sup>*</sup>
@@ -139,7 +138,7 @@ $specialnost = $specialnost->getAllSpecs();
                 <td class="bold">Специалист</td>
                 <td>
                     <select name="specialist" id="specialist">
-                              <?php
+                        <?php
                         foreach ($specialist as $value) {
                             echo "<option value='" . $value['id'] . "'>" . $value['name'] . "</option>\n";
                         }
@@ -152,43 +151,64 @@ $specialnost = $specialnost->getAllSpecs();
                     <b>Специализация</b><br>
                 </td>
                 <td>
-                    <select id="specialisation" name="specialisation">
-                       
+                    <select id="specialisation" name="specialisation" style="min-width:20em !important;">
+
                     </select>
                 </td>
+            </tr
+            <tr>
+                <td class="bold">Предимно работя с:</td>
+                <td>
+                    <input type="checkbox" name="wotkwithgorups"> Групи <br>
+                    <input type="checkbox" name="wotkwithperson"> Индивидуално</td>
             </tr>
-            <tr class="sr">
-                <td >
-                    <b>Специализация (за кондиционен треньор)</b><br>
+            <tr>
+                <td class="bold">Работя с:</td>
+                <td>
+                    <input type="checkbox" name="wotkwithchildren"> Деца <br>
+                    <input type="checkbox" name="wotkwithadultsamateurs"> Възрастни - аматьори<br>
+                    <input type="checkbox" name="wotkwithproffesionalist"> Професионални състезатели</td>
+            </tr>
+            <tr>
+                <td class="bold">Контакти:</td>
+                <td>
+                    <textarea name="contacts"></textarea></td>
+            </tr>
+
+            <tr>
+                <td class="bold">Цена:</td>
+                <td>
+                    <input type="radio" name="price" value="1" /> $<br>
+                    <input type="radio" name="price" value="2" /> $$<br>
+                    <input type="radio" name="price" value="3" /> $$$<br>
+                    <input type="radio" name="price" value="4" /> $$$$<br>
+                    <br><b>
+                        Или <input type="text" id="price-range-value">
+                    <br>  <br>
+                    <label for="price-range">1</label> <input type="range" id="price-range" name="price-range" min="1" max="444" style="width:300px;display:inline;"> 1000
+                    </b>                
+                </td>
+                    
+            </tr>
+
+
+            <tr style="background-color: lightseagreen;"><td colspan="2"></td></tr>
+            <tr>
+                <td>
+                    <button id="btnSave">Запиши</button></div>
                 </td>
                 <td>
-                    <select name="specialisation">
-                        <option>Спортни травми</option>
-                        <option>Травми на опорно двигателен апарат</option>
-                        <option>Кинезитерапия при вътрешни болести</option>
-                        <option>Кинезитерапия при неврологични заболявания</option>
-                        <option>Педиатрична кинезитерапия</option>
-                        <option>Мануален терапевт</option>
-                        <option>Кинезитерапия при гериатрични пациенти</option>
-                    </select>
+                    <button class="profile-close">Затвори</button>
                 </td>
-            </tr>
-            <tr style="background-color: lightseagreen;"><td colspan="2"></td></tr>
-              <tr>
-            <td>
-                <button id="btnSave">Запиши</button></div>
-            </td>
-            <td>
-                <button class="profile-close">Затвори</button>
-            </td>
-        </tr> 
+            </tr> 
 
         </table>
     </form>
     <table>
-      
+
     </table>
 </fieldset>
+
 
 <div id="table-container">
     <div id="title-container"><span>Треньори</span><span id="add-new" class="right" style="cursor:pointer;">
@@ -230,26 +250,31 @@ $specialnost = $specialnost->getAllSpecs();
 </div> <!-- DIV Table -->
 
 <script>
-    $(document).ready(function(){
-       console.log($("#specialist").val());
-                
-       $("select#specialist").on("change",function(){
-           // TO DO  - ajax get specialnost for current specialist
-       });
+    $(document).ready(function () {
+        fillSpecialnost();
+
+        $("select#specialist").on("change", function () {
+            fillSpecialnost();
+        });
+        
+        $("#price-range").on("input",function(){
+            $("#price-range-value").val($("#price-range").val());
+        });
     });
-    
-    function fillSpecialnost(){
-          var data = {
+
+    function fillSpecialnost() {
+        var data = {
             action: "get_specialnost",
-            id: $("#specialist").val(),
-            spec_id: $("#specialist-specialnost option:selected").val()
+            id: $("#specialist").val()
         };
 
         $.post('admin/admin_ajax.php', data, function (mhm) {
-         
-            al();
+
+            $("#specialisation").html(mhm);
+
         });
-        
-        
+
+
     }
-    </script>
+</script>
+ipt>
