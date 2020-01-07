@@ -10,10 +10,14 @@ if (!$action) {
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $specId = filter_input(INPUT_POST, 'spec_id', FILTER_SANITIZE_NUMBER_INT);
+$user= filter_input(INPUT_POST,'user');
 
 $out['error'] = null;
 
 switch ($action) {
+    case "save_user":
+        include "../classes/User.php";
+        break;
     case "edit_specialist":
         include_once '../classes/Specialist.php';
         $spec = new Specialist();

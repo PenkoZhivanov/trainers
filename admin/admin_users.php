@@ -131,17 +131,18 @@ $city = $city->getCities();
             </tr>
 
         </table>
-    </form>
-    <table>
+        <table>
         <tr>
             <td>
-                <button id="btnSave">Запиши</button></div>
+                <button type="submit" id="btnSave">Запиши</button></div>
             </td>
             <td>
                 <button class="profile-close">Затвори</button>
             </td>
         </tr> 
     </table>
+    </form>
+    
 </fieldset>
 
 <div id="table-container">

@@ -38,7 +38,7 @@ class User {
     }
 
    
-    function insert() {
+    function save() {
         
     }
     

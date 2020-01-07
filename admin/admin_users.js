@@ -5,7 +5,6 @@ $(document).ready(function () {
         if (this.className === "profile-close") {
             $("#table-container").show('slow');
             $("#popup").hide('fast');
-
             return;
         }
         if (this.id === "menu-button") {
@@ -40,7 +39,7 @@ $(document).ready(function () {
                 }
             });
         }
-        if (this.id === "save") {
+        if (this.id === "btnSave") {
 
         }
     });

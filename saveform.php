@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'functions.php';
-die;
+
 // ------------------------ Check for existing user----------------
 
 if (checkEmail($_POST['email'])) {
