@@ -38,15 +38,18 @@ transform: scale(1.5);
 margin:5px;
     }
 
+    h2 {display:inline-table;}
+    form{position:relative; top:0px; width: 600px; height: 450px;  }
+    
 </style>
 
 <fieldset id="popup" >
-    <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
+    <legend><h2 >Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" ></button></span></legend>
-    <form style="position:relative; top:0px; width: 800px; height: 450px;" name ="trainer-data" action="#" method ="POST" id="form1" enctype="multipart/form-data" autocomplete="off">
+    <form style="" name ="trainer-data" action="#" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
 
-            <tr class="fr">
+            <tr >
                 <td style="padding-right:30px; width:200px;" class="bold">
                     Име:<sup>*</sup>
                 </td>
@@ -54,7 +57,7 @@ margin:5px;
                     <input type ="text" id="firstname"  name="firstname"  required="requred" />
                     <label class="red" id="firstname_error"></label>
                 </td>
-            <tr class="fr">
+            <tr >
                 <td class="bold">
                     Фамилия:<sup>*</sup>
                 </td>
@@ -64,7 +67,7 @@ margin:5px;
                 </td>
             </tr>
 
-            <tr class="fr">
+            <tr >
                 <td class="bold">email</td>
                 <td>
                     <input type="email" id="email" required="required" name="email" />
@@ -76,7 +79,7 @@ margin:5px;
                     </label>
                 </td>
             </tr>
-            <tr class="fr"><td class="bold"> Страна:</td>
+            <tr ><td class="bold"> Страна:</td>
                 <td>
                     <select name="country" >
                         <?php for ($i = 0; $i < count($country); $i++) { ?>
@@ -86,7 +89,7 @@ margin:5px;
                     </select>
                 </td>
             </tr>
-            <tr class="fr">
+            <tr >
                 <td class="bold">Град</td>
                 <td>
                     <select name="city" id="city">
@@ -96,7 +99,7 @@ margin:5px;
                     </select>
                 </td>
             </tr>
-            <tr class="fr">
+            <tr >
                 <td class="bold">Адрес: </td>
                 <td>
                     <textarea name="address" id="address"></textarea>
@@ -104,7 +107,7 @@ margin:5px;
             </tr>
 
 
-            <tr class="fr">
+            <tr >
                 <td class="bold">
                     Снимка
                 </td>
@@ -113,19 +116,19 @@ margin:5px;
                     <input type="file" name="fileToUpload" id="fileToUpload"> </td>
             </tr>
 
-            <tr class="sr">
+            <tr >
                 <td style="width: 250px;"><b>Кратка биография</b></td>
                 <td>
                     <textarea name="trainer_bio" id="trainer_bio"></textarea>
                 </td>
             </tr>
 
-            <tr class="sr">
+            <tr >
                 <td class="bold">Oпит </td>
                 <td> <textarea name="trainer_experience" id="trainer_experience"></textarea></td>
 
             </tr>
-            <tr class="sr">
+            <tr >
                 <td class="bold">Начин на работа</td>
                 <td> 
                     <select name="way_of_work">
@@ -137,15 +140,15 @@ margin:5px;
                     </select>
                 </td>
             </tr>
-            <tr class="sr">
+            <tr >
                 <td class="bold">Месторабота</td>
                 <td> <textarea name="work_address"></textarea></td>
             </tr>
-            <tr class="sr"> 
+            <tr > 
                 <td class="bold">Работно време</td>
                 <td> <textarea name="work_time"></textarea></td>
             </tr>
-            <tr class="sr"> 
+            <tr > 
                 <td class="bold">Специалист</td>
                 <td>
                     <select name="specialist" id="specialist">
@@ -157,7 +160,7 @@ margin:5px;
                     </select>
                 </td>
             </tr>
-            <tr class="sr">
+            <tr >
                 <td >
                     <b>Специализация</b><br>
                 </td>
@@ -166,7 +169,7 @@ margin:5px;
 
                     </select>
                 </td>
-            </tr
+            </tr>
             <tr>
                 <td class="bold">Предимно работя с:</td>
                 <td>
