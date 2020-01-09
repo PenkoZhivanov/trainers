@@ -5,7 +5,7 @@ include_once 'classes/Country.php';
 include_once 'classes/City.php';
 include_once 'classes/Specialist.php';
 include_once 'classes/Specialisation.php';
-
+pre($_FILES);
 $user = new User();
 $country = new Country();
 $city = new City();
@@ -27,12 +27,23 @@ $specialnost = $specialnost->getAllSpecs();
 <link rel="stylesheet" href="./admin/css/admin_users.css">
 <script src="./admin/admin_users.js"></script>
 <script src="./admin/js/w3.js"></script>
+<style>
+    td{
+        border-bottom: 1px solid lightgrey;
+        padding-bottom: 10px;
+      padding-top: 10px;
+    }
+        input[type=checkbox],input[type=radio]{
+transform: scale(1.5);    
+margin:5px;
+    }
 
+</style>
 
 <fieldset id="popup" >
     <legend><h2 style="display:inline-table;">Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" ></button></span></legend>
-    <form style="position:relative; top:0px; width: 600px; height: 450px;" name ="trainer-data" action="saveform.php" method ="POST" enctype="multipart/form-data" autocomplete="off">
+    <form style="position:relative; top:0px; width: 800px; height: 450px;" name ="trainer-data" action="#" method ="POST" id="form1" enctype="multipart/form-data" autocomplete="off">
         <table>
 
             <tr class="fr">
@@ -159,7 +170,7 @@ $specialnost = $specialnost->getAllSpecs();
             <tr>
                 <td class="bold">Предимно работя с:</td>
                 <td>
-                    <input type="checkbox" name="wotkwithgorups"> Групи <br>
+                    <input type="checkbox" name="wotkwithgorups" > Групи <br>
                     <input type="checkbox" name="wotkwithperson"> Индивидуално</td>
             </tr>
             <tr>
@@ -191,22 +202,20 @@ $specialnost = $specialnost->getAllSpecs();
                     
             </tr>
 
-
             <tr style="background-color: lightseagreen;"><td colspan="2"></td></tr>
-            <tr>
+         
+  <tr>
                 <td>
-                    <button id="btnSave">Запиши</button></div>
+                    <button type="submit" form="form1" id="btnSave" >Запиши</button></div>
                 </td>
                 <td>
                     <button class="profile-close">Затвори</button>
                 </td>
             </tr> 
-
-        </table>
+        </table>  <br>
+    <br>
     </form>
-    <table>
-
-    </table>
+  
 </fieldset>
 
 

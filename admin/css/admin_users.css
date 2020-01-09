@@ -17,7 +17,7 @@ button {
     width:25%;
     height: 90%;
     min-height: 80%;
-    min-width: 600px;
+    min-width: 700px;
     background-color: white;
     overflow-y: scroll;
     border-bottom: 1px solid black;
@@ -105,4 +105,3 @@ span > button {
     .right{
         float:right;
     }
-    
