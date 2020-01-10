@@ -39,9 +39,9 @@ $(document).ready(function () {
             $("html, body").animate({scrollTop: $("#" + id).offset().top
             }, 850);
         }
-        if (id === 'enter') {
-            $("#first_page_container").hide();
-            $(".mcontainer").show();
+        
+        if (id === "enter") {
+            window.location.href="login.php";
         }
         if(id==="registration"){
           window.location.href="register.php";

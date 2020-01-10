@@ -5,7 +5,7 @@ include_once 'classes/Country.php';
 include_once 'classes/City.php';
 include_once 'classes/Specialist.php';
 include_once 'classes/Specialisation.php';
-pre($_FILES);
+pre($_POST);
 $user = new User();
 $country = new Country();
 $city = new City();
@@ -31,24 +31,36 @@ $specialnost = $specialnost->getAllSpecs();
     td{
         border-bottom: 1px solid lightgrey;
         padding-bottom: 10px;
-      padding-top: 10px;
+        padding-top: 10px;
     }
-        input[type=checkbox],input[type=radio]{
-transform: scale(1.5);    
-margin:5px;
+    input[type=checkbox],input[type=radio]{
+        transform: scale(1.5);    
+        margin:5px;
     }
 
     h2 {display:inline-table;}
     form{position:relative; top:0px; width: 600px; height: 450px;  }
-    
+    legend{border-top:2px solid grey;}
+    #first_header{
+        width:30%;
+    }
+    table, fieldset, legend, form{
+        background-color: #fffffa;
+    }
+    .chkboxes{
+        cursor:pointer;
+    }
+    .chkboxes:hover{
+        color:gray;
+    }
 </style>
 
 <fieldset id="popup" >
     <legend><h2 >Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" ></button></span></legend>
-    <form style="" name ="trainer-data" action="#" method ="POST" enctype="multipart/form-data" autocomplete="off">
+    <form id="trainer-data" name ="trainer-data" action="" method ="POST" enctype="multipart/form-data" autocomplete="off">
         <table>
-
+            <tr><th id="first_header"></th><th id="second_header"></th></tr>
             <tr >
                 <td style="padding-right:30px; width:200px;" class="bold">
                     Име:<sup>*</sup>
@@ -173,15 +185,15 @@ margin:5px;
             <tr>
                 <td class="bold">Предимно работя с:</td>
                 <td>
-                    <input type="checkbox" name="wotkwithgorups" > Групи <br>
-                    <input type="checkbox" name="wotkwithperson"> Индивидуално</td>
+                    <input type="checkbox" name="wotkwithgorups" id="wotkwithgorups"> <span class="chkboxes" onclick="wotkwithgorups.checked=!wotkwithgorups.checked;">Групи</span> <br>
+                    <input type="checkbox" name="wotkwithperson" id="wotkwithperson"> <span class="chkboxes" onclick="wotkwithperson.checked=!wotkwithperson.checked;">Индивидуално</span></td>
             </tr>
             <tr>
                 <td class="bold">Работя с:</td>
                 <td>
-                    <input type="checkbox" name="wotkwithchildren"> Деца <br>
-                    <input type="checkbox" name="wotkwithadultsamateurs"> Възрастни - аматьори<br>
-                    <input type="checkbox" name="wotkwithproffesionalist"> Професионални състезатели</td>
+                    <input type="checkbox" name="wotkwithchildren" id="wotkwithchildren"> <span class="chkboxes" onclick="wotkwithchildren.checked=!wotkwithchildren.checked;">Деца </span><br>
+                    <input type="checkbox" name="wotkwithadultsamateurs" id="wotkwithadultsamateurs"> <span class="chkboxes" onclick="wotkwithadultsamateurs.checked=!wotkwithadultsamateurs.checked;">Възрастни - аматьори</span><br>
+                    <input type="checkbox" name="wotkwithproffesionalist" id="wotkwithproffesionalist"> <span class="chkboxes" onclick="wotkwithproffesionalist.checked=!wotkwithproffesionalist.checked;">Професионални състезатели</span></td>
             </tr>
             <tr>
                 <td class="bold">Контакти:</td>
@@ -192,33 +204,29 @@ margin:5px;
             <tr>
                 <td class="bold">Цена:</td>
                 <td>
-                    <input type="radio" name="price" value="1" /> $<br>
-                    <input type="radio" name="price" value="2" /> $$<br>
-                    <input type="radio" name="price" value="3" /> $$$<br>
-                    <input type="radio" name="price" value="4" /> $$$$<br>
-                    <br><b>
-                        Или <input type="text" id="price-range-value">
-                    <br>  <br>
-                    <label for="price-range">1</label> <input type="range" id="price-range" name="price-range" min="1" max="444" style="width:300px;display:inline;"> 1000
-                    </b>                
+                    <input type="radio" name="price" id="price1" value="1" /> <span class="chkboxes" onclick="price1.checked=true;">$</span><br>
+                    <input type="radio" name="price" id="price2" value="2" /> <span  class="chkboxes" onclick="price2.checked=true;"> $$</span><br>
+                    <input type="radio" name="price" id="price3" value="3" /><span class="chkboxes" onclick="price3.checked=true;"> $$$</span><br>
+                    <input type="radio" name="price" id="price4" value="4" /> <span class="chkboxes" onclick="price4.checked=true;">$$$$</span><br>
+                  
                 </td>
-                    
+
             </tr>
 
             <tr style="background-color: lightseagreen;"><td colspan="2"></td></tr>
-         
-  <tr>
+
+            <tr>
                 <td>
-                    <button type="submit" form="form1" id="btnSave" >Запиши</button></div>
+                    <button type="submit" form="trainer-data" id="btnSave" >Запиши</button></div>
                 </td>
                 <td>
                     <button class="profile-close">Затвори</button>
                 </td>
             </tr> 
         </table>  <br>
-    <br>
+        <br>
     </form>
-  
+
 </fieldset>
 
 
@@ -268,8 +276,8 @@ margin:5px;
         $("select#specialist").on("change", function () {
             fillSpecialnost();
         });
-        
-        $("#price-range").on("input",function(){
+
+        $("#price-range").on("input", function () {
             $("#price-range-value").val($("#price-range").val());
         });
     });
@@ -289,4 +297,3 @@ margin:5px;
 
     }
 </script>
- 

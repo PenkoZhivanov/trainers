@@ -22,7 +22,9 @@ switch ($action) {
     case "login":
         login();
         break;
-
+    case "register":
+        echo "sadfasdfgasgfasga";
+        break;
     default:
         break;
 }

@@ -5,7 +5,7 @@ if($post){
     $email=$post['email'];
     $password=$post['password'];
 }
-
+$uri="index.php";
 include_once 'db.php';
 $db= new DB();
 $pass= md5($password);
@@ -15,6 +15,7 @@ if($isThere){
     $_SESSION['user']=$isThere[0];
 }else{
     unset($_SESSION['user']);
+    $uri="login.php";
 }
 
-header("location:index.php");
+header("location:$uri");
