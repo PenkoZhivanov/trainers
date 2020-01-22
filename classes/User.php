@@ -5,7 +5,7 @@ class User {
     private $table = "user";
  
     function __construct() {
-        include_once 'db.php';
+        include_once '../db.php';
         $this->db = new DB();
     }
 
