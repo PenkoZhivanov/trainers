@@ -55,7 +55,7 @@ $specialnost = $specialnost->getAllSpecs();
     }
 </style>
 
-<div id="table-container">
+<div id="table-container" hidden="hidden">
     <div id="title-container"><span>Треньори</span><span id="add-new" class="right" style="cursor:pointer;">
             <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нов</span></div>
     <table  id="example" class="display compact" >
@@ -93,7 +93,11 @@ $specialnost = $specialnost->getAllSpecs();
         </tfoot>
     </table>
 </div> <!-- DIV Table -->
-
+<!--<iframe id="add_new" src="../../trainers/form/register_form.php">-->
+<div id="add_new"  style="height:200px;width:300px;sandbox:allow-forms; position: relative;top:30%;" >
+    <?php            include_once 'form/register_form.php';
+    ?>
+</div>
 <script>
     $(document).ready(function () {
         fillSpecialnost();

@@ -1,19 +1,32 @@
 <?php
+
 class User {
 
     private $db;
     private $table = "user";
- 
+
     function __construct() {
-        include_once '../db.php';
+
+      //  include_once 'db.php';
+
         $this->db = new DB();
     }
 
-    function getAllUsers( $where = null) {
+    function getAllUsers($where = null) {
         if ($where == null) {
-            $sql = "SELECT * FROM user LEFT JOIN country ON countryid=country LEFT JOIN city ON cityid=city";
+        $sql = "SELECT * FROM user "
+                    . "LEFT JOIN country ON country.countryid=user.countryid "
+                    . "LEFT JOIN city ON city.cityid=user.cityid "
+                    . "LEFT JOIN client ON client.client_userid = user.userid "
+                    . "LEFT JOIN trainer t ON t.userid = user.userid WHERE isTrainer = 0";
+            
         } else {
-            $sql = "SELECT * FROM user LEFT JOIN country ON countryid=country LEFT JOIN city ON cityid=city " . $where;
+            $sql = "SELECT * FROM user "
+                    . "LEFT JOIN country ON country.countryid=user.countryid "
+                    . "LEFT JOIN city ON city.cityid=user.cityid "
+                    . "LEFT JOIN client ON client.client_userid = user.userid "
+                    . "LEFT JOIN trainer t ON t.userid = user.userid WHERE isTrainer=1";
+       
         }
 
         $result = $this->db->query($sql);
@@ -37,12 +50,11 @@ class User {
         return $result;
     }
 
-   
     function save() {
         
     }
-    
-    function update(){
+
+    function update() {
         
     }
 

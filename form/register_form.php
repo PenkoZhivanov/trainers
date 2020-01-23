@@ -6,6 +6,7 @@ include_once '../classes/City.php';
 include_once '../classes/Specialist.php';
 include_once '../classes/Specialisation.php';
 include_once '../classes/WayToWork.php';
+
 $user = new User();
 $country = new Country();
 $city = new City();
@@ -53,7 +54,7 @@ foreach ($specialist as $value) {
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-        <title>Untitled Form</title>
+        <title>Registration form</title>
         <link rel="stylesheet" type="text/css" href="view.css" media="all"></link>
         <script type="text/javascript" src="view.js"></script>
          <script src="../pages/js/jquery.min.js"></script>
@@ -64,7 +65,7 @@ foreach ($specialist as $value) {
         <img id="top" src="top.png" alt="">
         <div id="form_container">
             <h1>Регистрация на треньор</h1>
-            <form id="form_96448" class="appnitro"  method="post" action="">
+            <form id="form_96448" class="appnitro"  method="post" action="../reg.php">
                 <div class="form_description">
                     <h2>Регистрация на треньор</h2>
                 </div>						
@@ -106,15 +107,15 @@ foreach ($specialist as $value) {
                         </div> 
                     </li>		
                     <li id="li_9" >
-                        <label class="description" for="element_9">Адрес </label>
+                        <label class="description" for="address">Адрес </label>
                         <div>
-                            <textarea id="element_9" name="element_9" class="element textarea medium"></textarea> 
+                            <textarea id="address" name="address" class="element textarea medium"></textarea> 
                         </div> 
                     </li>		
                     <li id="li_10" >
-                        <label class="description" for="element_10">Опит </label>
+                        <label class="description" for="experience">Опит </label>
                         <div>
-                            <input id="element_10" name="element_10" class="element text medium" type="text" maxlength="255" value=""/> 
+                            <input id="element_10" name="experience" class="element text medium" type="text" maxlength="255" value=""/> 
                         </div> 
                     </li>		<li id="li_16" >
                         <label class="description" for="element_16">Начин на работа </label>
@@ -125,8 +126,8 @@ foreach ($specialist as $value) {
                     <li id="li_11" >
                         <label class="description" for="element_11">Месторабота </label>
                         <div>
-                            <textarea id="element_11" name="element_11" class="element textarea medium"></textarea> 
-                        </div><p class="guidelines" id="guide_11"><small>Място където се провеждат тренировките</small></p> 
+                            <textarea id="element_11" name="workaddress" class="element textarea medium"></textarea> 
+                        </div><p class="guidelines" id="workaddress"><small>Място където се провеждат тренировките</small></p> 
                     </li>		
                     <li id="li_12" >
                         <label class="description" for="element_12">Работно време </label>
@@ -222,9 +223,7 @@ foreach ($specialist as $value) {
             fillSpecialnost();
         });
 
-        $("#price-range").on("input", function () {
-            $("#price-range-value").val($("#price-range").val());
-        });
+       
     });
 
     function fillSpecialnost() {
