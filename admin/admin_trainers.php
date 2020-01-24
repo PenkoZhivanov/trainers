@@ -5,7 +5,7 @@ include_once 'classes/Country.php';
 include_once 'classes/City.php';
 include_once 'classes/Specialist.php';
 include_once 'classes/Specialisation.php';
-pre($_POST);
+//pre($_POST);
 $user = new User();
 $country = new Country();
 $city = new City();
@@ -55,7 +55,7 @@ $specialnost = $specialnost->getAllSpecs();
     }
 </style>
 
-<div id="table-container" hidden="hidden">
+<div id="table-container">
     <div id="title-container"><span>Треньори</span><span id="add-new" class="right" style="cursor:pointer;">
             <img src="images/add-user.png" style="width: 30px;margin-top:-5px;"> Добави нов</span></div>
     <table  id="example" class="display compact" >
@@ -94,10 +94,7 @@ $specialnost = $specialnost->getAllSpecs();
     </table>
 </div> <!-- DIV Table -->
 <!--<iframe id="add_new" src="../../trainers/form/register_form.php">-->
-<div id="add_new"  style="height:200px;width:300px;sandbox:allow-forms; position: relative;top:30%;" >
-    <?php            include_once 'form/register_form.php';
-    ?>
-</div>
+
 <script>
     $(document).ready(function () {
         fillSpecialnost();
@@ -108,6 +105,10 @@ $specialnost = $specialnost->getAllSpecs();
 
         $("#price-range").on("input", function () {
             $("#price-range-value").val($("#price-range").val());
+        });
+        
+        $("#add-new").on('click',function(){
+            window.location.href="form/register_form.php";
         });
     });
 

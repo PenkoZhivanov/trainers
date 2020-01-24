@@ -32,6 +32,7 @@ switch ($id){
         $_SESSION["page"]="index";
         header("location:index.php");
         break;
+
 }
 
 

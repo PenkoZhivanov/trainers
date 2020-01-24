@@ -1,3 +1,4 @@
+
 <fieldset id="popup" >
     <legend><h2 >Профил на треньор</h2><span id="close-user-profile" > 
             <button title="Затвори" class="profile-close" ></button></span></legend>
@@ -171,4 +172,3 @@
     </form>
 
 </fieldset>
-

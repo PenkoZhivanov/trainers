@@ -34,7 +34,7 @@ for ($i = 0; $i < count($country); $i++) {
 
 /* Cities */
 $mask = null;
-$cities=null;
+$cities = null;
 for ($i = 0; $i < count($city); $i++) {
     $cities = $cities . '<option value="' . $city[$i]["cityid"] . '">' . $city[$i]["city_name"] . '</option> ';
 }
@@ -57,7 +57,7 @@ foreach ($specialist as $value) {
         <title>Registration form</title>
         <link rel="stylesheet" type="text/css" href="view.css" media="all"></link>
         <script type="text/javascript" src="view.js"></script>
-         <script src="../pages/js/jquery.min.js"></script>
+        <script src="../pages/js/jquery.min.js"></script>
         <script src="../pages/js/bootstrap.min.js"></script>
         <script src="../pages/js/jquery-confirm.min.js"></script>
     </head>
@@ -70,142 +70,156 @@ foreach ($specialist as $value) {
                     <h2>Регистрация на треньор</h2>
                 </div>						
                 <ul >
-                    <li id="li_1" >
-                        <label class="description" for="element_1">Имена </label>
-                        <span>
-                            <input id="element_1_1" name= "firstname" class="element text" maxlength="255" size="8" value=""/>
-                            <label>Име</label>
-                        </span>
-                        <span>
-                            <input id="element_1_2" name= "lastname" class="element text" maxlength="255" size="14" value=""/>
-                            <label>Фамилия</label>
-                        </span> 
-                    </li>		<li id="li_5" >
-                        <label class="description" for="email">Email </label>
-                        <div>
-                            <input id="email" name="email" class="element text medium" type="text" maxlength="255" value=""/> 
-                        </div> 
-                    </li>		<li id="li_13" >
-                        <label class="description" for="phone">Телефон </label>
-                        <div>
-                            <input id="phone" name="phone" class="element text medium" type="text" maxlength="255" value=""/> 
-                        </div> 
-                    </li>		<li id="li_7" >
-                        <label class="description" for="element_7">Държава </label>
-                        <div>
-                            <select class="element select medium" id="country" name="country"> 
-                                <?= $countries; ?>
+                    <!-- Първа секция  -->   
+                    <section id="first" >
+                        <li id="li_1" >
+                            <label class="description" for="element_1">Имена </label>
+                            <span>
+                                <input id="element_1_1" name= "firstname" class="element text" maxlength="255" size="8" value=""/>
+                                <label>Име</label>
+                            </span>
+                            <span>
+                                <input id="element_1_2" name= "lastname" class="element text" maxlength="255" size="14" value=""/>
+                                <label>Фамилия</label>
+                            </span> 
+                        </li>		
+                        <li id="li_5" >
+                            <label class="description" for="email">Email </label>
+                            <div>
+                                <input id="email" name="email" class="element text medium" type="text" maxlength="255" value=""/> 
+                            </div> 
+                        </li>		<li id="li_13" >
+                            <label class="description" for="phone">Телефон </label>
+                            <div>
+                                <input id="phone" name="phone" class="element text medium" type="text" maxlength="255" value=""/> 
+                            </div> 
+                        </li>		<li id="li_7" >
+                            <label class="description" for="element_7">Държава </label>
+                            <div>
+                                <select class="element select medium" id="country" name="country"> 
+                                    <?= $countries; ?>
+                                </select>
+                            </div> 
+                        </li>		<li id="li_8" >
+                            <label class="description" for="element_8">Град </label>
+                            <div>
+                                <select class="element select medium" id="city" name="city"> 
+                                    <?= $cities; ?>
+
+                                </select>
+                            </div> 
+                        </li>		
+                        <li id="li_9" >
+                            <label class="description" for="address">Адрес </label>
+                            <div>
+                                <textarea id="address" name="address" class="element textarea medium"></textarea> 
+                            </div> 
+                        </li>
+                        <li id="buttons"><input type="button" onclick="paging(2);" value="Следваща страница"></li>
+                    </section>
+                    <!-- Втора секция  -->    
+                    <section id="second" style="display:none;">
+                        <li id="li_10" >
+                            <label class="description" for="experience">Опит </label>
+                            <div>
+                                <input id="element_10" name="experience" class="element text medium" type="text" maxlength="255" value=""/> 
+                            </div> 
+                        </li>		<li id="li_16" >
+                            <label class="description" for="element_16">Начин на работа </label>
+                            <select name="way_of_work">
+                                <?= $wtw; ?>
                             </select>
-                        </div> 
-                    </li>		<li id="li_8" >
-                        <label class="description" for="element_8">Град </label>
-                        <div>
-                            <select class="element select medium" id="city" name="city"> 
-                                <?= $cities; ?>
+                        </li>
+                        <li id="li_11" >
+                            <label class="description" for="element_11">Месторабота </label>
+                            <div>
+                                <textarea id="element_11" name="workaddress" class="element textarea medium"></textarea> 
+                            </div><p class="guidelines" id="workaddress"><small>Място където се провеждат тренировките</small></p> 
+                        </li>		
+                        <li id="li_12" >
+                            <label class="description" for="element_12">Работно време </label>
+                            <div>
+                                <textarea id="element_12" name="element_12" class="element textarea medium"></textarea> 
+                            </div> 
+                        </li>	
+                           <li id="buttons">
+                               <input type="button" onclick="paging(1);" value="Предишна страница"><input type="button" onclick="paging(3);" value="Следваща страница">
+                           </li>
+                    </section>
+                    <!-- Трета секция -->
+                    <section id="three" style="display:none;">
+                        <li id="li_17" >
+                            <label class="description" for="specialist">Специалист </label>
+                            <select name="specialist" id="specialist">
+                                <?= $spec; ?>
+                            </select> 
+                        </li>		
+                        <li id="li_18" >
+                            <label class="description" for="specialisation">Специалност </label>
+                            <select id="specialisation" name="specialisation" style="min-width:20em !important;">
 
                             </select>
-                        </div> 
-                    </li>		
-                    <li id="li_9" >
-                        <label class="description" for="address">Адрес </label>
-                        <div>
-                            <textarea id="address" name="address" class="element textarea medium"></textarea> 
-                        </div> 
-                    </li>		
-                    <li id="li_10" >
-                        <label class="description" for="experience">Опит </label>
-                        <div>
-                            <input id="element_10" name="experience" class="element text medium" type="text" maxlength="255" value=""/> 
-                        </div> 
-                    </li>		<li id="li_16" >
-                        <label class="description" for="element_16">Начин на работа </label>
-                        <select name="way_of_work">
-                            <?= $wtw; ?>
-                        </select>
-                    </li>
-                    <li id="li_11" >
-                        <label class="description" for="element_11">Месторабота </label>
-                        <div>
-                            <textarea id="element_11" name="workaddress" class="element textarea medium"></textarea> 
-                        </div><p class="guidelines" id="workaddress"><small>Място където се провеждат тренировките</small></p> 
-                    </li>		
-                    <li id="li_12" >
-                        <label class="description" for="element_12">Работно време </label>
-                        <div>
-                            <textarea id="element_12" name="element_12" class="element textarea medium"></textarea> 
-                        </div> 
-                    </li>		
-                    <li id="li_17" >
-                        <label class="description" for="specialist">Специалист </label>
-                        <select name="specialist" id="specialist">
-                            <?= $spec; ?>
-                        </select> 
-                    </li>		
-                    <li id="li_18" >
-                          <label class="description" for="specialisation">Специалност </label>
-                        <select id="specialisation" name="specialisation" style="min-width:20em !important;">
+                        </li>		
+                        <li id="li_19" >
+                            <label class="description" for="element_19">Предимно работя </label>
+                            <span>
+                                <input id="wotkwithperson" name="wotkwithperson" class="element checkbox" type="checkbox" value="1" />
+                                <label class="choice" for="wotkwithperson">Персонално</label>
+                                <input id="wotkwithgorups" name="wotkwithgorups" class="element checkbox" type="checkbox" value="1" />
+                                <label class="choice" for="wotkwithgorups">С групи</label>
 
-                        </select>
-                    </li>		
-                    <li id="li_19" >
-                        <label class="description" for="element_19">Предимно работя </label>
-                        <span>
-                            <input id="wotkwithperson" name="wotkwithperson" class="element checkbox" type="checkbox" value="1" />
-                            <label class="choice" for="wotkwithperson">Персонално</label>
-                            <input id="wotkwithgorups" name="wotkwithgorups" class="element checkbox" type="checkbox" value="1" />
-                            <label class="choice" for="wotkwithgorups">С групи</label>
+                            </span> 
+                        </li>		
+                        <li id="li_20" >
+                            <label class="description" for="element_20">Работя с </label>
+                            <span>
+                                <input id="wotkwithchildren" name="wotkwithchildren" class="element checkbox" type="checkbox" value="1" />
+                                <label class="choice" for="wotkwithchildren">Деца</label>
+                                <input id="wotkwithadultsamateurs" name="wotkwithadultsamateurs" class="element checkbox" type="checkbox" value="1" />
+                                <label class="choice" for="wotkwithadultsamateurs">Възрастни - аматьори</label>
+                                <input id="wotkwithproffesionalist" name="wotkwithproffesionalist" class="element checkbox" type="checkbox" value="1" />
+                                <label class="choice" for="wotkwithproffesionalist">Професионални състезатели</label>
 
-                        </span> 
-                    </li>		
-                    <li id="li_20" >
-                        <label class="description" for="element_20">Работя с </label>
-                        <span>
-                            <input id="wotkwithchildren" name="wotkwithchildren" class="element checkbox" type="checkbox" value="1" />
-                            <label class="choice" for="wotkwithchildren">Деца</label>
-                            <input id="wotkwithadultsamateurs" name="wotkwithadultsamateurs" class="element checkbox" type="checkbox" value="1" />
-                            <label class="choice" for="wotkwithadultsamateurs">Възрастни - аматьори</label>
-                            <input id="wotkwithproffesionalist" name="wotkwithproffesionalist" class="element checkbox" type="checkbox" value="1" />
-                            <label class="choice" for="wotkwithproffesionalist">Професионални състезатели</label>
+                            </span> 
+                        </li>		<li id="li_14" >
+                            <label class="description" for="element_14">Цена
+                            </label>
+                            <span class="symbol">&#8364;</span>
+                            <span>
+                                <input id="element_14_1" name="element_14_1" class="element text currency" size="10" value="" type="text" /> .		
+                                <label for="element_14_1">Euros</label>
+                            </span>
+                            <span>
+                                <input id="element_14_2" name="element_14_2" class="element text" size="2" maxlength="2" value="" type="text" />
+                                <label for="element_14_2">Cents</label>
+                            </span>
 
-                        </span> 
-                    </li>		<li id="li_14" >
-                        <label class="description" for="element_14">Цена
-                        </label>
-                        <span class="symbol">&#8364;</span>
-                        <span>
-                            <input id="element_14_1" name="element_14_1" class="element text currency" size="10" value="" type="text" /> .		
-                            <label for="element_14_1">Euros</label>
-                        </span>
-                        <span>
-                            <input id="element_14_2" name="element_14_2" class="element text" size="2" maxlength="2" value="" type="text" />
-                            <label for="element_14_2">Cents</label>
-                        </span>
+                        </li>		<li id="li_21" >
+                            <label class="description" for="element_21">Цена </label>
+                            <span>
+                                <input id="element_21_1" name="price" class="element radio" type="radio" value="1" />
+                                <label class="choice" for="element_21_1">$</label>
+                                <input id="element_21_2" name="price" class="element radio" type="radio" value="2" />
+                                <label class="choice" for="element_21_2">$$</label>
+                                <input id="element_21_3" name="price" class="element radio" type="radio" value="3" />
+                                <label class="choice" for="element_21_3">$$$</label>
+                                <input id="element_21_4" name="price" class="element radio" type="radio" value="4" />
+                                <label class="choice" for="element_21_4">$$$$</label>
 
-                    </li>		<li id="li_21" >
-                        <label class="description" for="element_21">Цена </label>
-                        <span>
-                            <input id="element_21_1" name="price" class="element radio" type="radio" value="1" />
-                            <label class="choice" for="element_21_1">$</label>
-                            <input id="element_21_2" name="price" class="element radio" type="radio" value="2" />
-                            <label class="choice" for="element_21_2">$$</label>
-                            <input id="element_21_3" name="price" class="element radio" type="radio" value="3" />
-                            <label class="choice" for="element_21_3">$$$</label>
-                             <input id="element_21_4" name="price" class="element radio" type="radio" value="4" />
-                            <label class="choice" for="element_21_4">$$$$</label>
+                            </span> 
+                        </li>		<li id="li_15" >
+                            <label class="description" for="element_15">Сертификати </label>
+                            <div>
+                                <textarea id="element_15" name="element_15" class="element textarea medium"></textarea> 
+                            </div> 
+                        </li>
 
-                        </span> 
-                    </li>		<li id="li_15" >
-                        <label class="description" for="element_15">Сертификати </label>
-                        <div>
-                            <textarea id="element_15" name="element_15" class="element textarea medium"></textarea> 
-                        </div> 
-                    </li>
-
-                    <li class="buttons">
-                        <input type="hidden" name="form_id" value="96448" />
-
-                        <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-                    </li>
+                        <li class="buttons">
+                            <input type="hidden" name="form_id" value="96448" />
+<input type="button" onclick="paging(2);" value="Предишна страница">
+                            <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                        </li>
+                    </section>
                 </ul>
             </form>	
             <div id="footer">
@@ -223,7 +237,7 @@ foreach ($specialist as $value) {
             fillSpecialnost();
         });
 
-       
+
     });
 
     function fillSpecialnost() {
@@ -239,5 +253,24 @@ foreach ($specialist as $value) {
         });
 
 
+    }
+    function paging(page){
+    switch (page){
+            case 1:
+            first.style.display = 'block';
+            second.style.display = 'none';
+            three.style.display = 'none';
+        break;
+        case 2:
+            first.style.display = 'none';
+            second.style.display = 'block';
+            three.style.display = 'none';
+        break;
+        case 3:
+            first.style.display = 'none';
+            second.style.display = 'none';
+            three.style.display = 'block';
+        break;
+    }
     }
 </script>

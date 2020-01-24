@@ -68,6 +68,9 @@
             case "specialnosti":
                 include_once $admin_specialnosti;
                 break;
+            case "register_form":
+                include_once 'form/register_form.php';
+                break;
         }
         ?>
 

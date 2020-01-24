@@ -5,13 +5,14 @@
  */
 $action = filter_input(INPUT_POST, 'action');
 $id = filter_input(INPUT_POST, 'id');
+$email = filter_input(INPUT_POST, 'email');
 $result = [
     'error' => null
 ];
 
+include_once 'classes/User.php';
 switch ($action) {
     case 'profile':
-        include_once 'User.php';
         $user = new User();
         echo json_encode($user->getSpecifficUser($id));
         break;
@@ -23,10 +24,21 @@ switch ($action) {
         login();
         break;
     case "register":
-        echo "sadfasdfgasgfasga";
+        $result = checkExistinUser($email);
+        if (count($result) < 1) {
+            echo 0;
+        } else {
+            echo json_encode($result);
+        }
+
         break;
     default:
         break;
+}
+
+function checkExistinUser($email) {
+    $user = new User();
+    return $user->getSpecifficUser(null, $email);
 }
 
 function login() {

@@ -7,8 +7,6 @@ class User {
 
     function __construct() {
 
-      //  include_once 'db.php';
-
         $this->db = new DB();
     }
 
@@ -45,7 +43,7 @@ class User {
         if ($password != null) {
             $where = $where . " AND password ='$password' ";
         }
-
+        $where = $where." LIMIT 1";
         $result = $this->db->getAll($this->table, $where, $orderBy);
         return $result;
     }
