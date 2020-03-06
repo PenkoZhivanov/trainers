@@ -142,9 +142,9 @@ foreach ($specialist as $value) {
                                 <textarea id="element_12" name="element_12" class="element textarea medium"></textarea> 
                             </div> 
                         </li>	
-                           <li id="buttons">
-                               <input type="button" onclick="paging(1);" value="Предишна страница"><input type="button" onclick="paging(3);" value="Следваща страница">
-                           </li>
+                        <li id="buttons">
+                            <input type="button" onclick="paging(1);" value="Предишна страница"><input type="button" onclick="paging(3);" value="Следваща страница">
+                        </li>
                     </section>
                     <!-- Трета секция -->
                     <section id="three" style="display:none;">
@@ -216,7 +216,7 @@ foreach ($specialist as $value) {
 
                         <li class="buttons">
                             <input type="hidden" name="form_id" value="96448" />
-<input type="button" onclick="paging(2);" value="Предишна страница">
+                            <input type="button" onclick="paging(2);" value="Предишна страница">
                             <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
                         </li>
                     </section>
@@ -254,23 +254,23 @@ foreach ($specialist as $value) {
 
 
     }
-    function paging(page){
-    switch (page){
+    function paging(page) {
+        switch (page) {
             case 1:
-            first.style.display = 'block';
-            second.style.display = 'none';
-            three.style.display = 'none';
-        break;
-        case 2:
-            first.style.display = 'none';
-            second.style.display = 'block';
-            three.style.display = 'none';
-        break;
-        case 3:
-            first.style.display = 'none';
-            second.style.display = 'none';
-            three.style.display = 'block';
-        break;
-    }
+                first.style.display = 'block';
+                second.style.display = 'none';
+                three.style.display = 'none';
+                break;
+            case 2:
+                first.style.display = 'none';
+                second.style.display = 'block';
+                three.style.display = 'none';
+                break;
+            case 3:
+                first.style.display = 'none';
+                second.style.display = 'none';
+                three.style.display = 'block';
+                break;
+        }
     }
 </script>

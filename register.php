@@ -1,9 +1,9 @@
-<?php
+s<?php
 //include_once 'head.php';
 //include_once 'navigation.php';
 //include 'classes/User.php';
 include_once 'functions.php';
-   include_once 'db.php';
+include_once 'db.php';
 //include_once 'classes/Country.php';
 //include_once 'classes/City.php';
 //
